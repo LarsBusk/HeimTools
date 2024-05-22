@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "TestServer": "data source=.\\SQL2019;initial catalog=DexterJitterData;integrated security=True;Trust Server Certificate=True",
+    "JitterServer": "data source=Bl-JitterData;initial catalog=DexterJitterData;User Id=JitterUser;Password=FossJitter;Trust Server Certificate=True"
+  }
+}
