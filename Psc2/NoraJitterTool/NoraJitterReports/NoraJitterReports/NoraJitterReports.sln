@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "NoraJitterReports", "NoraJitterReports.rptproj", "{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.Debug|Default.ActiveCfg = Debug
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.Debug|Default.Build.0 = Debug
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.Debug|Default.Deploy.0 = Debug
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.DebugLocal|Default.Build.0 = DebugLocal
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.Release|Default.ActiveCfg = Release
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.Release|Default.Build.0 = Release
+		{D6701E6E-B9F8-4A8D-A3B4-68113DF0DDDD}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D2AF882-8654-4B33-858C-C333C05ABFB6}
+	EndGlobalSection
+EndGlobal

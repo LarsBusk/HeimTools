@@ -1,0 +1,2 @@
+1. Export the node set file from Psc2 http://id-address:7913/api/opc-client/nodeset
+2. Drag and drop the nodeset file to the CreatePsc2KepserverCsvFiles.exe, it will create a memory based and a standard csv file.
