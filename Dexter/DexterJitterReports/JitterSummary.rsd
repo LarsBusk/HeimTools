@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DexterJitter</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@StartDate">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@EndDate">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>Select	tse.ConveyorSpeed
+	,	tse.RejectorConfig
+	,	tse.RejectionDelay
+	,	tse.RejectionDuration
+	,	tse.DistanceFromEdge
+	,	tse.ElementOnBelt
+	,	tse.MosaicSync
+	,	tse.TicketPrint
+	,	tse.ReposClean
+	,	tse.AutoExport
+	,	tse.DexterVersion
+	,	tse.PlatformVersion
+	,	gs.MaxDelay
+	,	gs.SampleCount
+	,	gs.PercentUnder
+	,	gs.CountOverLimit
+	,	gs.MaxTime
+	,	gs.MinTime
+From	dbo.fn_get_summary() gs
+Inner Join TestSetup tse
+On tse.TestSetupId = gs.TestSetupId
+Where tse.TestTime Between @StartDate and @EndDate</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ConveyorSpeed">
+        <DataField>ConveyorSpeed</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RejectorConfig">
+        <DataField>RejectorConfig</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RejectionDelay">
+        <DataField>RejectionDelay</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RejectionDuration">
+        <DataField>RejectionDuration</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DistanceFromEdge">
+        <DataField>DistanceFromEdge</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ElementOnBelt">
+        <DataField>ElementOnBelt</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MosaicSync">
+        <DataField>MosaicSync</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="TicketPrint">
+        <DataField>TicketPrint</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="ReposClean">
+        <DataField>ReposClean</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="AutoExport">
+        <DataField>AutoExport</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="DexterVersion">
+        <DataField>DexterVersion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PlatformVersion">
+        <DataField>PlatformVersion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MaxDelay">
+        <DataField>MaxDelay</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SampleCount">
+        <DataField>SampleCount</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="PercentUnder">
+        <DataField>PercentUnder</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="CountOverLimit">
+        <DataField>CountOverLimit</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MaxTime">
+        <DataField>MaxTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="MinTime">
+        <DataField>MinTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

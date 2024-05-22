@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DexterJitter</DataSourceReference>
+      <CommandText>SELECT    SystemName
+		, SerialNumber
+		, [Type]
+        , ChassisId
+		, DexterVersion
+		, PlatformVersion
+		, TestTime
+		, Comment
+        , PhysicalPC
+		, Timecorrection
+                                     , ExcludeFromSummary
+		, TestSetupId
+		, [Count]
+		, MaxDelay
+		, MeanDelay
+		, MinDelay
+		, StdDevDelay
+        , StartTime
+        , EndTime 
+FROM dbo.fn_get_jitter_statics()</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="SystemName">
+        <DataField>SystemName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SerialNumber">
+        <DataField>SerialNumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Type">
+        <DataField>Type</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ChassisId">
+        <DataField>ChassisId</DataField>
+        <rd:TypeName>System.Int64</rd:TypeName>
+      </Field>
+      <Field Name="DexterVersion">
+        <DataField>DexterVersion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PlatformVersion">
+        <DataField>PlatformVersion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="TestTime">
+        <DataField>TestTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Comment">
+        <DataField>Comment</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PhysicalPC">
+        <DataField>PhysicalPC</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="Timecorrection">
+        <DataField>Timecorrection</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ExcludeFromSummary">
+        <DataField>ExcludeFromSummary</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="TestSetupId">
+        <DataField>TestSetupId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Count">
+        <DataField>Count</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MaxDelay">
+        <DataField>MaxDelay</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MinDelay">
+        <DataField>MinDelay</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MeanDelay">
+        <DataField>MeanDelay</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="StdDevDelay">
+        <DataField>StdDevDelay</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="StartTime">
+        <DataField>StartTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="EndTime">
+        <DataField>EndTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
