@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>NoraJitter</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@SetupId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>With	SampleTimes as
+(
+	Select		tse.TestSetupId
+			,	DelaysId
+			,	SampleNumber
+			,	SampleDateTime
+            ,   tse.NumberOfCycles
+			,	LAG(SampleDateTime, 1) Over (Partition By d.TestSetupId Order by DelaysId) [LastSampleDateTime]
+	From		Delays d
+                   Inner Join                    TestSetup tse
+                   On                                 tse.TestSetupId = d.TestSetupId 
+	Where		tse.TestSetupId = @SetupId
+)
+Select			TestSetupId
+			,	DelaysId
+			,	SampleNumber
+			,	SampleDateTime
+			,	DATEDIFF(ms, LastSampleDateTime, SampleDateTime) / NumberOfCycles [TimeSinceLastSample]
+From		SampleTimes</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="TestSetupId">
+        <DataField>TestSetupId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DelaysId">
+        <DataField>DelaysId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SampleNumber">
+        <DataField>SampleNumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SampleDateTime">
+        <DataField>SampleDateTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="TimeSinceLastSample">
+        <DataField>TimeSinceLastSample</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+    <Filters>
+      <Filter>
+        <FilterExpression>=Fields!TimeSinceLastSample.Value</FilterExpression>
+        <Operator>LessThan</Operator>
+        <FilterValues>
+          <FilterValue DataType="Integer">35000</FilterValue>
+        </FilterValues>
+      </Filter>
+    </Filters>
+  </DataSet>
+</SharedDataSet>

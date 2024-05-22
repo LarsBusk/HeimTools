@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>NoraJitter</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@SetupId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>With Intervals as
+(
+Select	DelaysId
+	,	SampleNumber
+--	,	TimeBetweenSamples
+	,	Case
+			When TimeBetweenSamples / tse.NumberOfCycles &lt;=8000 Then 1
+			When TimeBetweenSamples / tse.NumberOfCycles Between 8000 and 12000 Then 2
+			When TimeBetweenSamples / tse.NumberOfCycles Between 12000 and 15000 Then 3
+			When TimeBetweenSamples / tse.NumberOfCycles &gt;= 15000 Then 4
+		End As Interval
+From	Delays d
+Inner Join TestSetup tse
+On tse.TestSetupId = d.TestSetupId
+Where	tse.TestSetupId = @SetupId
+and TimeBetweenSamples &lt; 35000
+)
+Select Interval
+	,	Count(DelaysId) [Count]
+From Intervals
+Group By Interval
+Order By Interval</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Interval">
+        <DataField>Interval</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Count">
+        <DataField>Count</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

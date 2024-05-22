@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>NoraJitter</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@TestSetupId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>With MaxMin as
+(
+	Select	MAX([Delay]) as MaxValue
+		,	MIN([Delay]) as MinValue
+		,	MAX([Delay]) - MIN([Delay]) as Span
+		,	MAX(TestSetupId) as TestSetupId
+	From Delays
+	Where TestSetupId = @TestSetupId
+),
+Channels as
+(
+	Select		CAST(1.00*([Delay] - m.MinValue) / m.Span * 1000 as Int) as Channel
+	From		MaxMin m
+	Inner Join	Delays d on
+				m.TestSetupId = d.TestSetupId
+)
+Select		Channel	
+		,	Count(Channel) as Count
+From		Channels
+Group By	Channel
+Order By	Channel</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Channel">
+        <DataField>Channel</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Count">
+        <DataField>Count</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
