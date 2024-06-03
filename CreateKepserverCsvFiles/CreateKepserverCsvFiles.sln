@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatePsc2KepserverCsvFiles", "CreatePsc2KepserverCsvFiles.csproj", "{71900B3A-59B6-40F6-AA37-22C138F1DFD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateKepserverCsvFiles", "CreateKepserverCsvFiles.csproj", "{71900B3A-59B6-40F6-AA37-22C138F1DFD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

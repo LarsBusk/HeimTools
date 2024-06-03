@@ -7,11 +7,12 @@
     <ProjectGuid>{71900B3A-59B6-40F6-AA37-22C138F1DFD0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>CreatePsc2KepserverCsvFiles</RootNamespace>
-    <AssemblyName>CreatePsc2KepserverCsvFiles</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <AssemblyName>CreateKepserverCsvFiles</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -27,7 +28,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Output\CreatePsc2KepserverCsvFiles\</OutputPath>
+    <OutputPath>..\..\Output\CreateKepserverCsvFiles\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

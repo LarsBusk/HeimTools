@@ -7,7 +7,7 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Output\NoraJitterTool\</OutputPath>
+    <OutputPath>..\..\..\Output\NoraJitterTool\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Krikke.ico</ApplicationIcon>
