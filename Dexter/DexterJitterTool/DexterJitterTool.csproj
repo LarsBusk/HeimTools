@@ -7,7 +7,7 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Output\DexterJitterTool\</OutputPath>
+    <OutputPath>..\..\..\Output\DexterJitterTool\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>DeeDee1.ico</ApplicationIcon>
