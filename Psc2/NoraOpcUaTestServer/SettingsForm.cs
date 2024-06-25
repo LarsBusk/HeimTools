@@ -1,5 +1,6 @@
 ﻿using NoraOpcUaTestServer.OpcNodes;
 using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace NoraOpcUaTestServer
@@ -7,11 +8,11 @@ namespace NoraOpcUaTestServer
     public partial class SettingsForm : Form
     {
         public static LogOptions LogOptions;
-
-        private string certString;
+        
         private bool userPasswordEnabled;
         private bool certEnabled;
         private bool anonomousEnabled;
+        private X509Certificate2 cert;
         public SettingsForm()
         {
             InitializeComponent();
@@ -26,7 +27,6 @@ namespace NoraOpcUaTestServer
             anonymousCheckBox.Checked = MainForm.EnableAnonymous;
             userPasswordCheckbox.Checked = MainForm.EnableUserPassword;
             certificateCheckBox.Checked = MainForm.EnableCertificate;
-            certString = MainForm.CertString;
             userTextBox.Text = MainForm.User;
             passwordTextBox.Text = MainForm.Password;
         }
@@ -47,7 +47,7 @@ namespace NoraOpcUaTestServer
             MainForm.EnableCertificate = certificateCheckBox.Checked;
             MainForm.Password = passwordTextBox.Text;
             MainForm.User = userTextBox.Text;
-            MainForm.CertString = certString;
+            MainForm.Certificate = cert;
             LogOptions.LogJitter = jitterCheckBox.Checked;
             LogOptions.LogMeasuredValues = measuredValuesCheckBox.Checked;
             LogOptions.LogNodeValues = nodeValuesCheckBox.Checked;
@@ -67,7 +67,7 @@ namespace NoraOpcUaTestServer
             var certForm = new CertForm();
             if (certForm.ShowDialog() == DialogResult.OK)
             {
-                certString = certForm.CertString;
+                cert = certForm.Cert;
             }
         }
 

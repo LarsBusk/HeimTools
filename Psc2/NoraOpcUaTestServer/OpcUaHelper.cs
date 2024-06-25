@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting.Server;
-using NoraOpcUaTestServer.OpcNodes;
+﻿using NoraOpcUaTestServer.OpcNodes;
 using Opc.UaFx;
 using Opc.UaFx.Server;
 using System;
@@ -14,7 +13,6 @@ namespace NoraOpcUaTestServer
 
         public NoraNodes Nodes => noraNodes;
         public OpcServer Server;
-        public string RawDataString;
 
 
         #endregion
@@ -31,13 +29,14 @@ namespace NoraOpcUaTestServer
         private readonly bool enableAnonymous;
         private readonly bool enableUserAndPassword;
         private readonly bool enableCertificate;
+        private readonly X509Certificate2 certificate;
 
         #endregion
 
         #region Public methods
 
         public OpcUaHelper(string serverName, string homeFolder, bool enableAnonymous, bool enableUserAndPassword,
-            bool enableCertificate, string userName, string password, string certString)
+            bool enableCertificate, string userName, string password, X509Certificate2 certificate)
         {
             this.serverName = serverName;
             this.homeFolder = homeFolder;
@@ -46,7 +45,7 @@ namespace NoraOpcUaTestServer
             this.enableCertificate = enableCertificate;
             this.userName = userName;
             this.password = password;
-            this.certString = certString;
+            this.certificate = certificate;
 
             Server = CreateServer();
             SetAuthentication();
@@ -155,9 +154,7 @@ namespace NoraOpcUaTestServer
 
         private void EnableCert()
         {
-            var certificate = new X509Certificate2(Convert.FromBase64String(certString));
             Server.CertificateStores.AutoCreateCertificate = false;
-            RawDataString = Convert.ToBase64String(certificate.RawData);
             var acl = Server.Security.CertificateAcl;
             acl.AddEntry(certificate);
             acl.IsEnabled = true;
