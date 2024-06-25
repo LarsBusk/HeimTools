@@ -4,6 +4,7 @@ using NoraOpcUaTestServer.States;
 using Opc.UaFx;
 using System;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace NoraOpcUaTestServer
@@ -18,6 +19,7 @@ namespace NoraOpcUaTestServer
         public static string User;
         public static string Password;
         public static string CertString;
+        public static X509Certificate2 Certificate;
 
         private OpcUaHelper helper;
         private readonly Logger statesLogger = new Logger("Logs", "States.txt");
@@ -96,36 +98,6 @@ namespace NoraOpcUaTestServer
             SetStateN(noraModeN);
         }
 
-        private void SetState(string noraMode)
-        {
-            switch (noraMode)
-            {
-                case "Measuring":
-                    CurrentState = new StateNoraMeasuring(helper);
-                    SetStartStopButtonText("Stop");
-                    break;
-                case "Stopped":
-                    CurrentState = new StateNoraStopped(helper);
-                    SetStartStopButtonText("Start");
-                    break;
-                case "ZeroSetting":
-                    CurrentState = new StateNoraZeroing(helper);
-                    break;
-                case "ManualCleaning":
-                    CurrentState = new StateNoraCleaning(helper);
-                    break;
-                case "PrepareMeasuring":
-                    CurrentState = new StateNoraPreparing(helper);
-                    break;
-                case "ProcessCleaning":
-                    CurrentState = new StateNoraProcessCleaning(helper);
-                    break;
-                case "CleanInPlace":
-                    CurrentState = new StateNoraCip(helper);
-                    SetStartStopButtonText("Stop");
-                    break;
-            }
-        }
 
         private void SetStateN(int modeN)
         {
@@ -133,12 +105,15 @@ namespace NoraOpcUaTestServer
             {
                 case 0:
                     CurrentState = new StateNoraStopped(helper);
+                    SetStartStopButtonText("Start");
                     break;
                 case 1:
                     CurrentState = new StateNoraMeasuring(helper);
+                    SetStartStopButtonText("Stop");
                     break;
                 case 2:
                     CurrentState = new StateNoraCip(helper);
+                    SetStartStopButtonText("Stop");
                     break;
                 case 3:
                     CurrentState = new StateNoraCleaning(helper);
@@ -278,7 +253,7 @@ namespace NoraOpcUaTestServer
                 enableCertificate: EnableCertificate,
                 userName: User,
                 password: Password,
-                certString: CertString);
+                certificate: Certificate);
 
             logHelper = new LogHelper(helper);
 
