@@ -25,7 +25,7 @@ namespace DexterOpcUaTestServer
         private static uint serverWatchdog = 1;
         private readonly string serverName;
         private readonly string homeFolder;
-        private readonly string certString;
+        private readonly X509Certificate2 certificate;
         private readonly string userName;
         private readonly string password;
         private readonly bool enableAnonymous;
@@ -37,7 +37,7 @@ namespace DexterOpcUaTestServer
         #region Public methods
 
         public OpcUaHelper(string serverName, string homeFolder, bool enableAnonymous, bool enableUserAndPassword,
-            bool enableCertificate, string userName, string password, string certString)
+            bool enableCertificate, string userName, string password, X509Certificate2 certificate)
         {
             this.serverName = serverName;
             this.homeFolder = homeFolder;
@@ -46,7 +46,7 @@ namespace DexterOpcUaTestServer
             this.enableCertificate = enableCertificate;
             this.userName = userName;
             this.password = password;
-            this.certString = certString;
+            this.certificate = certificate;
 
             Server = CreateServer();
             SetAuthentication();
@@ -138,9 +138,7 @@ namespace DexterOpcUaTestServer
 
         private void EnableCert()
         {
-            var certificate = new X509Certificate2(Convert.FromBase64String(certString));
             Server.CertificateStores.AutoCreateCertificate = false;
-            RawDataString = Convert.ToBase64String(certificate.RawData);
             var acl = Server.Security.CertificateAcl;
             acl.AddEntry(certificate);
             acl.IsEnabled = true;
