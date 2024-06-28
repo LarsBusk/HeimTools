@@ -5,6 +5,7 @@ using Opc.UaFx;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DexterOpcUaTestServer
 {
@@ -17,7 +18,7 @@ namespace DexterOpcUaTestServer
         public static bool EnableCertificate;
         public static string User;
         public static string Password;
-        public static string CertString;
+        public static X509Certificate2 Certificate;
 
         private OpcUaHelper helper;
         private readonly Logger statesLogger = new Logger("Logs", "States.txt");
@@ -212,7 +213,7 @@ namespace DexterOpcUaTestServer
                 enableCertificate: EnableCertificate,
                 userName: User,
                 password: Password,
-                certString: CertString);
+                certificate: Certificate);
 
             logHelper = new LogHelper(helper);
 

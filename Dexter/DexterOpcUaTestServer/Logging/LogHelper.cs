@@ -84,9 +84,10 @@ namespace DexterOpcUaTestServer.Logging
             {
                 return;
             }
-            using (Image image = Image.FromStream(new MemoryStream(value)))
+            _rejectLogger.LogInfo($"Image received length : {value.Length}.");
+            using (var image = Image.FromStream(new MemoryStream(value)))
             {
-                image.Save($"Images\\{nodeTime.ToString("yyMMddhhmmssfff")}.jpg", ImageFormat.Jpeg); 
+                image.Save($"Images\\{nodeTime.ToString("yyMMddhhmmssfff")}.jpg", ImageFormat.Jpeg);
             }
         }
 

@@ -18,7 +18,6 @@ namespace NoraOpcUaTestServer
         public static bool EnableCertificate;
         public static string User;
         public static string Password;
-        public static string CertString;
         public static X509Certificate2 Certificate;
 
         private OpcUaHelper helper;
