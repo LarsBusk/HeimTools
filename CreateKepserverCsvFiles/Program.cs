@@ -14,7 +14,7 @@ namespace CreatePsc2KepserverCsvFiles
             var csvCreator = new CsvNodeFileCreator();
 
             var nodes = xmlReader.GetOpcUaNodes(args[0]);
-            var fileName = args[0].Contains("Dexter") ? "Dxter" : "Psc2";
+            var fileName = nodes.Any(n => n.NodeIdentifier.Contains("PipetteProductCode")) ? "Psc2" : "MmFlex";
             csvCreator.CreateCsvFiles(nodes, fileName);
         }
     }
