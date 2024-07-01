@@ -24,7 +24,7 @@ namespace NoraOpcUaTestServer
             if (dialog.ShowDialog() == DialogResult.OK )
             {
                 var certFile = dialog.FileName;
-                Cert = new X509Certificate2();//X509Certificate2.CreateFromCertFile(certFile));
+                Cert = new X509Certificate2();
                 Cert.Import(certFile);
             }
         }
