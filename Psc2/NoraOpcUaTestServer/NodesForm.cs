@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NoraOpcUaTestServer
@@ -22,7 +15,7 @@ namespace NoraOpcUaTestServer
 
         private void ShowNodes()
         {
-            var nodes = helper.Server.DefaultNodeManager.Nodes;
+            var nodes = helper.OpcUaServer.Server.DefaultNodeManager.Nodes;
             nodesRtb.Clear();
             foreach (var node in nodes)
             {

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Opc.UaFx;
 
-namespace DexterOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
-    public class AlarmNodes : NodeBase  
+    public class AlarmNodesDexter : NodeBase  
     {
         public List<IOpcNode> Nodes => nodes;
         public OpcDataVariableNode<bool> ReferenceMeasurementNeeded;
@@ -42,12 +42,10 @@ namespace DexterOpcUaTestServer.OpcNodes
         public OpcDataVariableNode<bool> XraySourceInSafeDisable;
         public OpcDataVariableNode<bool> XraySourceTemperatureHigh;
         public OpcDataVariableNode<bool> XraySourceThermalShutdown;
-        public OpcDataVariableNode<uint> Count;
-        public OpcDataVariableNode<bool> SystemAlarms;
         private readonly OpcFolderNode alarmsFolder;
         private List<IOpcNode> nodes = new List<IOpcNode>();
 
-        public AlarmNodes(OpcFolderNode parentFolder)
+        public AlarmNodesDexter(OpcFolderNode parentFolder)
         {
             this.FolderName = "Alarms";
             alarmsFolder = new OpcFolderNode(parentFolder, FolderName);
@@ -89,8 +87,6 @@ namespace DexterOpcUaTestServer.OpcNodes
             XraySourceInSafeDisable = CreateOpcUaNode<bool>(alarmsFolder, "XraySourceInSafeDisable", nodes);
             XraySourceTemperatureHigh = CreateOpcUaNode<bool>(alarmsFolder, "XraySourceTemperatureHigh", nodes);
             XraySourceThermalShutdown = CreateOpcUaNode<bool>(alarmsFolder, "XraySourceThermalShutdown", nodes);
-            Count = CreateOpcUaNode<uint>(alarmsFolder, "Count", nodes);
-            SystemAlarms = CreateOpcUaNode<bool>(alarmsFolder, "SystemAlarms", nodes);
         }
     }
 }

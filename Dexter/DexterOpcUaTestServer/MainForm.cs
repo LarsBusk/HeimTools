@@ -148,7 +148,7 @@ namespace DexterOpcUaTestServer
 
         private void nodesButton_Click(object sender, EventArgs e)
         {
-            if (!helper.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
+            if (!helper.Server.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
 
             var nodesForm = new NodesForm(helper);
             nodesForm.Show();
@@ -217,11 +217,11 @@ namespace DexterOpcUaTestServer
 
             logHelper = new LogHelper(helper);
 
-            helper.Server.StateChanged += Server_StateChanged;
+            helper.Server.Server.StateChanged += Server_StateChanged;
             helper.Nodes.InstrumentNodes.Mode.AfterApplyChanges += ModeNode_AfterApplyChanges;
             helper.Nodes.InstrumentNodes.WatchdogCounter.AfterApplyChanges += WatchdogCounterAfterApplyChanges;
             helper.Nodes.InstrumentNodes.ProductName.AfterApplyChanges += ProductName_AfterApplyChanges;
-            helper.Nodes.InstrumentNodes.BatchCounter.AfterApplyChanges += BatchCounter_AfterApplyChanges;
+            helper.Nodes.InstrumentNodesDexter.BatchCounter.AfterApplyChanges += BatchCounter_AfterApplyChanges;
 
             CurrentState = new StateServerStopped(helper);
             SettingsForm.LogOptions = InitialiseLogging();

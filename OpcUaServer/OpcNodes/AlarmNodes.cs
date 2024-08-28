@@ -1,18 +1,11 @@
-﻿using System;
+﻿using Opc.UaFx;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Opc.UaFx;
 
-namespace NoraOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
     public class AlarmNodes : NodeBase  
     {
         public List<IOpcNode> Nodes => nodes;
-        public OpcDataVariableNode<bool> UninterruptibleMode;
-        public OpcDataVariableNode<bool> CabinetDoorOpen;
-        public OpcDataVariableNode<bool> ZeroSettingIncomplete;
         public OpcDataVariableNode<uint> Count;
         public OpcDataVariableNode<bool> SystemAlarms;
         private readonly OpcFolderNode alarmsFolder;
@@ -28,9 +21,6 @@ namespace NoraOpcUaTestServer.OpcNodes
 
         public void GetNodes()
         {
-            UninterruptibleMode = CreateOpcUaNode<bool>(alarmsFolder, "UninterruptibleMode", nodes);
-            CabinetDoorOpen = CreateOpcUaNode<bool>(alarmsFolder, "CabinetDoorOpen", nodes);
-            ZeroSettingIncomplete = CreateOpcUaNode<bool>(alarmsFolder, "ZeroSettingIncomplete", nodes);
             Count = CreateOpcUaNode<uint>(alarmsFolder, "Count", nodes);
             SystemAlarms = CreateOpcUaNode<bool>(alarmsFolder, "SystemAlarms", nodes);
         }

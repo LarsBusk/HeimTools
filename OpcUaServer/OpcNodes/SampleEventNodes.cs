@@ -1,7 +1,7 @@
 ﻿using Opc.UaFx;
 using System.Collections.Generic;
 
-namespace NoraOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
     public class SampleEventNodes : NodeBase
     {

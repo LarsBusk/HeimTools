@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Opc.UaFx;
 
-namespace DexterOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
     public class TimeStampNodes : NodeBase
     {
@@ -25,7 +25,7 @@ namespace DexterOpcUaTestServer.OpcNodes
 
         public TimeStampNodes(OpcFolderNode parentFolder)
         {
-            this.FolderName = "TimeStamp";
+            this.FolderName = parentFolder.Name.Equals("Sample") ? "TimeStamp" : "Timestamp";
             timeStampFolder = new OpcFolderNode(parentFolder, FolderName);
             SetNodeTree(parentFolder, FolderName);
             GetNodes();
