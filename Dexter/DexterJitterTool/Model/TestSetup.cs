@@ -59,6 +59,8 @@ namespace DexterJitterTool.Model
 
         public bool ReposClean { get; set; }
 
+        public bool SingleResultMode { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual List<Delays> Delays { get; set; }
 

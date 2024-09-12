@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.8.34511.84</am:Version>
+      <am:Version>17.10.35201.131</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-04-30T12:22:02.3375098Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-09-12T08:49:19.6257635Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -79,6 +79,10 @@
           <DataField>MaxDelay</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="SingleResultMode">
+          <DataField>SingleResultMode</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
         <Field Name="SampleCount">
           <DataField>SampleCount</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -110,6 +114,9 @@
         </Field>
         <Field Name="AutoExportState">
           <Value>=Iif(Fields!AutoExport.Value, "X", "")</Value>
+        </Field>
+        <Field Name="SingleResultState">
+          <Value>=Iif(Fields!SingleResultMode.Value,"X","")</Value>
         </Field>
       </Fields>
     </DataSet>
@@ -208,6 +215,9 @@
                   <Width>0.22in</Width>
                 </TablixColumn>
                 <TablixColumn>
+                  <Width>0.19259in</Width>
+                </TablixColumn>
+                <TablixColumn>
                   <Width>0.5in</Width>
                 </TablixColumn>
                 <TablixColumn>
@@ -219,7 +229,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.89583in</Height>
+                  <Height>1.01041in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -560,6 +570,42 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>=Variables!FillLight.Value</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <WritingMode>Vertical</WritingMode>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Single Result Mode</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>=Variables!TableHeaderFontColor.Value</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1021,6 +1067,40 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="SingleResultState">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SingleResultState.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>SingleResultState</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>White</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="MaxDelay">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1135,6 +1215,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1155,8 +1236,8 @@
             </SortExpressions>
             <Top>1.96403in</Top>
             <Left>0.31432cm</Left>
-            <Height>1.14583in</Height>
-            <Width>6.96306in</Width>
+            <Height>1.26041in</Height>
+            <Width>7.15565in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1588,7 +1669,7 @@ Microsoft.VisualBasic.Constants.vbCrLf</Value>
         <Height>13.93092cm</Height>
         <Style />
       </Body>
-      <Width>19.01472cm</Width>
+      <Width>20.50049cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

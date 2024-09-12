@@ -29,6 +29,7 @@
 	,	tse.AutoExport
 	,	tse.DexterVersion
 	,	tse.PlatformVersion
+                   ,                 tse.SingleResultMode
 	,	gs.MaxDelay
 	,	gs.SampleCount
 	,	gs.PercentUnder
@@ -88,6 +89,10 @@ Where tse.TestTime Between @StartDate and @EndDate</CommandText>
       <Field Name="PlatformVersion">
         <DataField>PlatformVersion</DataField>
         <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SingleResultMode">
+        <DataField>SingleResultMode</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
       </Field>
       <Field Name="MaxDelay">
         <DataField>MaxDelay</DataField>

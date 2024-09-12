@@ -63,6 +63,7 @@
             realPCCheckBox = new System.Windows.Forms.CheckBox();
             AddTestSystemButton = new System.Windows.Forms.Button();
             CleanupButton = new System.Windows.Forms.Button();
+            singleResultCheck = new System.Windows.Forms.CheckBox();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -204,6 +205,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(singleResultCheck);
             groupBox3.Controls.Add(reposCleanCheck);
             groupBox3.Controls.Add(MosaicSyncCheck);
             groupBox3.Controls.Add(ticketPrintCheck);
@@ -427,6 +429,16 @@
             CleanupButton.UseVisualStyleBackColor = true;
             CleanupButton.Click += CleanupButton_Click;
             // 
+            // singleResultCheck
+            // 
+            singleResultCheck.AutoSize = true;
+            singleResultCheck.Location = new System.Drawing.Point(6, 110);
+            singleResultCheck.Name = "singleResultCheck";
+            singleResultCheck.Size = new System.Drawing.Size(124, 19);
+            singleResultCheck.TabIndex = 25;
+            singleResultCheck.Text = "Single result mode";
+            singleResultCheck.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -492,6 +504,7 @@
         private System.Windows.Forms.CheckBox ticketPrintCheck;
         private System.Windows.Forms.CheckBox autoExportCheck;
         private System.Windows.Forms.CheckBox reposCleanCheck;
+        private System.Windows.Forms.CheckBox singleResultCheck;
     }
 }
 
