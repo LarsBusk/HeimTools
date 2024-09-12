@@ -8,7 +8,6 @@ namespace OpcUaServer.OpcNodes
     {
         public List<IOpcNode> Nodes => nodes;
         public OpcDataVariableNode<int> BatchNumber;
-        //public OpcDataVariableNode<int> BatchNumberN;
         public OpcDataVariableNode<DateTime> Timestamp;
         public BatchParametersNodes ParameterNodes;
 
@@ -26,7 +25,6 @@ namespace OpcUaServer.OpcNodes
         private void GetNodes()
         {
             BatchNumber = CreateOpcUaNode<int>(batchFolder, "BatchNumber", nodes);
-            //BatchNumberN = CreateOpcUaNode<int>(batchFolder, "BatchNumberN", nodes);
             Timestamp = CreateOpcUaNode<DateTime>(batchFolder, "Timestamp.DateTime", nodes);
             ParameterNodes = new BatchParametersNodes(batchFolder);
             nodes.AddRange(ParameterNodes.Nodes);
