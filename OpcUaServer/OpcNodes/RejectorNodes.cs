@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Opc.UaFx;
 
-namespace DexterOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
     public class RejectorNodes : NodeBase
     {
         public List<IOpcNode> Nodes => nodes;
         public OpcDataVariableNode<bool> Active;
         public OpcDataVariableNode<byte[]> RejectedImageJPG;
+        public OpcDataVariableNode<DateTime> RejectedTime;
+
         private readonly OpcFolderNode rejectorFolder;
         private List<IOpcNode> nodes = new List<IOpcNode>();
 
@@ -27,6 +29,7 @@ namespace DexterOpcUaTestServer.OpcNodes
         {
             Active = CreateOpcUaNode<bool>(rejectorFolder, "Active", nodes);
             RejectedImageJPG = CreateOpcUaNode<byte[]>(rejectorFolder, "RejectedImageJPG", nodes);
+            RejectedTime = CreateOpcUaNode<DateTime>(rejectorFolder, "Timestamp.DateTime", nodes);
         }
     }
 }

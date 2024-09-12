@@ -22,7 +22,7 @@ namespace DexterOpcUaTestServer
 
         private void ShowNodes()
         {
-            var nodes = helper.Server.DefaultNodeManager.Nodes;
+            var nodes = helper.Server.Server.DefaultNodeManager.Nodes;
             nodesRtb.Clear();
             foreach (var node in nodes)
             {

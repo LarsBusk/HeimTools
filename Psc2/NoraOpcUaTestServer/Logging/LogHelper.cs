@@ -1,7 +1,7 @@
 ﻿using NiceLittleLogger;
-using NoraOpcUaTestServer.OpcNodes;
 using Opc.UaFx;
 using System;
+using OpcUaServer.OpcNodes;
 
 namespace NoraOpcUaTestServer.Logging
 {
@@ -31,14 +31,14 @@ namespace NoraOpcUaTestServer.Logging
 
             _helper.Nodes.InstrumentNodes.SampleCounter.AfterApplyChanges += SampleCounter_AfterApplyChanges;
             _helper.Nodes.InstrumentNodes.SampleCounter.BeforeApplyChanges += SampleCounter_BeforeApplyChanges;
-            _helper.Nodes.SampleNodes.ParametersNodes.FatValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
-            _helper.Nodes.SampleNodes.ParametersNodes.ProteinValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
-            _helper.Nodes.SampleNodes.ParametersNodes.LactoseValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
-            _helper.Nodes.SampleNodes.ParametersNodes.SnfValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
-            _helper.Nodes.SampleNodes.ParametersNodes.TsValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
+            _helper.Nodes.SampleNodes.ParametersNodesNora.FatValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
+            _helper.Nodes.SampleNodes.ParametersNodesNora.ProteinValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
+            _helper.Nodes.SampleNodes.ParametersNodesNora.LactoseValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
+            _helper.Nodes.SampleNodes.ParametersNodesNora.SnfValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
+            _helper.Nodes.SampleNodes.ParametersNodesNora.TsValue.AfterApplyChanges += ResultNode_AfterApplyChanges;
             _helper.Nodes.SampleNodes.SampleNumber.AfterApplyChanges += ResultNode_AfterApplyChanges;
-            _helper.Nodes.InstrumentNodes.ModeN.AfterApplyChanges += LogSim;
-            _helper.Nodes.ControllerNodes.ModeN.AfterApplyChanges += LogSim;
+            _helper.Nodes.InstrumentNodesNora.ModeN.AfterApplyChanges += LogSim;
+            _helper.Nodes.ControllerNodesNora.ModeN.AfterApplyChanges += LogSim;
         }
 
         private void SampleCounter_BeforeApplyChanges(object sender, OpcNodeChangesEventArgs e)
@@ -54,13 +54,13 @@ namespace NoraOpcUaTestServer.Logging
             }
         }
 
-        private void LogValues(NoraNodes nodes, DateTime opcServerDateTime)
+        private void LogValues(OpcUaNodes nodes, DateTime opcServerDateTime)
         {
-            var fatValue = nodes.SampleNodes.ParametersNodes.FatValue.Value;
-            var proteinValue = nodes.SampleNodes.ParametersNodes.ProteinValue.Value;
-            var lactoseValue = nodes.SampleNodes.ParametersNodes.LactoseValue.Value;
-            var tsValue = nodes.SampleNodes.ParametersNodes.TsValue.Value;
-            var snfValue = nodes.SampleNodes.ParametersNodes.SnfValue.Value;
+            var fatValue = nodes.SampleNodes.ParametersNodesNora.FatValue.Value;
+            var proteinValue = nodes.SampleNodes.ParametersNodesNora.ProteinValue.Value;
+            var lactoseValue = nodes.SampleNodes.ParametersNodesNora.LactoseValue.Value;
+            var tsValue = nodes.SampleNodes.ParametersNodesNora.TsValue.Value;
+            var snfValue = nodes.SampleNodes.ParametersNodesNora.SnfValue.Value;
             var sampleCounter = nodes.InstrumentNodes.SampleCounter.Value;
             var sampleNumber = nodes.SampleNodes.SampleNumber.Value;
             var sampleRegistrationValue = nodes.SampleNodes.SampleRegistrationValue.Value;

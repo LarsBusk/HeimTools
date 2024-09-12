@@ -19,18 +19,18 @@ namespace NoraOpcUaTestServer
             this.helper = helper;
             GetCurrentAlarms();
 
-            helper.Nodes.AlarmNodes.UninterruptibleMode.AfterApplyChanges += AlarmHasChanged;
-            helper.Nodes.AlarmNodes.ZeroSettingIncomplete.AfterApplyChanges += AlarmHasChanged;
+            helper.Nodes.AlarmNodesNora.UninterruptibleMode.AfterApplyChanges += AlarmHasChanged;
+            helper.Nodes.AlarmNodesNora.ZeroSettingIncomplete.AfterApplyChanges += AlarmHasChanged;
             helper.Nodes.AlarmNodes.SystemAlarms.AfterApplyChanges += AlarmHasChanged;
-            helper.Nodes.AlarmNodes.CabinetDoorOpen.AfterApplyChanges += AlarmHasChanged;
+            helper.Nodes.AlarmNodesNora.CabinetDoorOpen.AfterApplyChanges += AlarmHasChanged;
         }
 
         private void GetCurrentAlarms()
         {
-            UpdateLabelColour(UninterruptibleModeLabel, helper.Nodes.AlarmNodes.UninterruptibleMode.Value ? Color.Red : Color.Black);
-            UpdateLabelColour(ZeroSettingIncompleteLabel, helper.Nodes.AlarmNodes.ZeroSettingIncomplete.Value ? Color.Red : Color.Black);
+            UpdateLabelColour(UninterruptibleModeLabel, helper.Nodes.AlarmNodesNora.UninterruptibleMode.Value ? Color.Red : Color.Black);
+            UpdateLabelColour(ZeroSettingIncompleteLabel, helper.Nodes.AlarmNodesNora.ZeroSettingIncomplete.Value ? Color.Red : Color.Black);
             UpdateLabelColour(SystemAlarmsLabel, helper.Nodes.AlarmNodes.SystemAlarms.Value ? Color.Red : Color.Black);
-            UpdateLabelColour(cabinetDoorOpenLabel, helper.Nodes.AlarmNodes.CabinetDoorOpen.Value ? Color.Red : Color.Black);
+            UpdateLabelColour(cabinetDoorOpenLabel, helper.Nodes.AlarmNodesNora.CabinetDoorOpen.Value ? Color.Red : Color.Black);
         }
 
         private void AlarmHasChanged(object sender, OpcNodeChangesEventArgs e)

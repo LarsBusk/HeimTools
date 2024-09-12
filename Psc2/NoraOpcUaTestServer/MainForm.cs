@@ -1,11 +1,12 @@
 ﻿using NiceLittleLogger;
 using NoraOpcUaTestServer.Logging;
 using NoraOpcUaTestServer.States;
-using Opc.UaFx;
+using OpcUaServer;
 using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
+using Opc.UaFx;
 
 namespace NoraOpcUaTestServer
 {
@@ -162,7 +163,7 @@ namespace NoraOpcUaTestServer
 
         private void nodesButton_Click(object sender, EventArgs e)
         {
-            if (!helper.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
+            if (!helper.OpcUaServer.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
 
             var nodesForm = new NodesForm(helper);
             nodesForm.Show();
@@ -256,14 +257,19 @@ namespace NoraOpcUaTestServer
 
             logHelper = new LogHelper(helper);
 
-            helper.Server.StateChanged += Server_StateChanged;
-            helper.Nodes.InstrumentNodes.ModeN.AfterApplyChanges += ModeNodeN_AfterApplyChanges;
+            helper.OpcUaServer.ServerStateChanged += OpcUaServer_ServerStateChanged;
+            helper.Nodes.InstrumentNodesNora.ModeN.AfterApplyChanges += ModeNodeN_AfterApplyChanges;
             helper.Nodes.InstrumentNodes.WatchdogCounter.AfterApplyChanges += WatchdogCounterAfterApplyChanges;
             helper.Nodes.InstrumentNodes.ProductName.AfterApplyChanges += ProductName_AfterApplyChanges;
             helper.Nodes.InstrumentNodes.SampleCounter.AfterApplyChanges += SampleCounter_AfterApplyChanges;
 
             CurrentState = new StateServerStopped(helper);
             SettingsForm.LogOptions = InitialiseLogging();
+        }
+
+        private void OpcUaServer_ServerStateChanged(object sender, ServerStateEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private LogOptions InitialiseLogging()

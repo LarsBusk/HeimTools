@@ -165,6 +165,9 @@
     <Reference Include="Opc.UaFx.Advanced, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0220af0d33d50236, processorArchitecture=MSIL">
       <HintPath>packages\Opc.UaFx.Advanced.2.20.2\lib\net471\Opc.UaFx.Advanced.dll</HintPath>
     </Reference>
+    <Reference Include="OpcUaServer">
+      <HintPath>..\..\OpcUaServer\bin\Release\OpcUaServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -291,28 +294,15 @@
     <Compile Include="NodesForm.Designer.cs">
       <DependentUpon>NodesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OpcNodes\AlarmNodes.cs" />
-    <Compile Include="OpcNodes\BatchNodes.cs" />
-    <Compile Include="OpcNodes\EventNodes.cs" />
-    <Compile Include="OpcNodes\BatchParametersNodes.cs" />
-    <Compile Include="OpcNodes\RejectorNodes.cs" />
-    <Compile Include="OpcNodes\SampleEventNodes.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OpcNodes\NodeBase.cs" />
-    <Compile Include="OpcNodes\DexterNodes.cs" />
-    <Compile Include="OpcNodes\ParametersNodes.cs" />
-    <Compile Include="OpcNodes\TimeStampNodes.cs" />
     <Compile Include="OpcUaHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="OpcNodes\InstrumentNodes.cs" />
-    <Compile Include="OpcNodes\SampleNodes.cs" />
-    <Compile Include="OpcNodes\ControllerNodes.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>

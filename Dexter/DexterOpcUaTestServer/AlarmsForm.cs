@@ -19,13 +19,13 @@ namespace DexterOpcUaTestServer
             this.helper = helper;
             GetCurrentAlarms();
             
-            helper.Nodes.AlarmNodes.ReferenceMeasurementNeeded.AfterApplyChanges += AlarmHasChanged;
+            helper.Nodes.AlarmNodesDexter.ReferenceMeasurementNeeded.AfterApplyChanges += AlarmHasChanged;
             helper.Nodes.AlarmNodes.SystemAlarms.AfterApplyChanges += AlarmHasChanged;
         }
 
         private void GetCurrentAlarms()
         {
-            UpdateLabelColour(ZeroSettingIncompleteLabel, helper.Nodes.AlarmNodes.ReferenceMeasurementNeeded.Value ? Color.Red : Color.Black);
+            UpdateLabelColour(ZeroSettingIncompleteLabel, helper.Nodes.AlarmNodesDexter.ReferenceMeasurementNeeded.Value ? Color.Red : Color.Black);
             UpdateLabelColour(SystemAlarmsLabel, helper.Nodes.AlarmNodes.SystemAlarms.Value ? Color.Red : Color.Black);
         }
 

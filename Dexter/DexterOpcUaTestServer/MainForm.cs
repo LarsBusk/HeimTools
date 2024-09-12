@@ -67,7 +67,13 @@ namespace DexterOpcUaTestServer
         private void BatchCounter_AfterApplyChanges(object sender, OpcNodeChangesEventArgs e)
         {
             var counter = (OpcDataVariableNode<uint>)sender;
-            UpdateLabelText(sampleCounterLabel, $"Batch counter: {counter.Value}");
+            UpdateLabelText(batchCounterLabel, $"Batch counter: {counter.Value}");
+        }
+
+        private void ResultCounter_AfterApplyChanges(object sender, OpcNodeChangesEventArgs e)
+        {
+            var counter = (OpcDataVariableNode<uint>)sender;
+            UpdateLabelText(resultCounterLabel, $"Result counter: {counter.Value}");
         }
 
         private void ProductName_AfterApplyChanges(object sender, OpcNodeChangesEventArgs e)
@@ -148,7 +154,7 @@ namespace DexterOpcUaTestServer
 
         private void nodesButton_Click(object sender, EventArgs e)
         {
-            if (!helper.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
+            if (!helper.Server.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
 
             var nodesForm = new NodesForm(helper);
             nodesForm.Show();
@@ -217,15 +223,18 @@ namespace DexterOpcUaTestServer
 
             logHelper = new LogHelper(helper);
 
-            helper.Server.StateChanged += Server_StateChanged;
+            helper.Server.Server.StateChanged += Server_StateChanged;
             helper.Nodes.InstrumentNodes.Mode.AfterApplyChanges += ModeNode_AfterApplyChanges;
             helper.Nodes.InstrumentNodes.WatchdogCounter.AfterApplyChanges += WatchdogCounterAfterApplyChanges;
             helper.Nodes.InstrumentNodes.ProductName.AfterApplyChanges += ProductName_AfterApplyChanges;
-            helper.Nodes.InstrumentNodes.BatchCounter.AfterApplyChanges += BatchCounter_AfterApplyChanges;
+            helper.Nodes.InstrumentNodesDexter.BatchCounter.AfterApplyChanges += BatchCounter_AfterApplyChanges;
+            helper.Nodes.InstrumentNodesDexter.ResultCounter.AfterApplyChanges += ResultCounter_AfterApplyChanges;
 
             CurrentState = new StateServerStopped(helper);
             SettingsForm.LogOptions = InitialiseLogging();
         }
+
+
 
         private LogOptions InitialiseLogging()
         {

@@ -1,16 +1,13 @@
 ﻿using Opc.UaFx;
 using System.Collections.Generic;
 
-namespace DexterOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
     public class ControllerNodes : NodeBase
     {
         public List<IOpcNode> Nodes => nodes;
         public OpcDataVariableNode<string> ProductCode;
-        public OpcDataVariableNode<int> ProductCodeN;
-        public OpcDataVariableNode<string> RecipeCode;
-        public OpcDataVariableNode<uint> RecipeCodeN;
-        public OpcDataVariableNode<bool> StartMeasuring;
+        public OpcDataVariableNode<uint> ProductCodeN;
         public OpcDataVariableNode<uint> WatchdogCounter;
 
         private readonly OpcFolderNode controllerFolder;
@@ -27,10 +24,7 @@ namespace DexterOpcUaTestServer.OpcNodes
         private void GetNodes()
         {
             ProductCode = CreateOpcUaNode<string>(controllerFolder, "ProductCode", nodes);
-            ProductCodeN = CreateOpcUaNode<int>(controllerFolder, "ProductCodeN", nodes);
-            RecipeCode = CreateOpcUaNode<string>(controllerFolder, "RecipeCode", nodes);
-            RecipeCodeN = CreateOpcUaNode<uint>(controllerFolder, "RecipeCodeN", nodes);
-            StartMeasuring = CreateOpcUaNode<bool>(controllerFolder, "StartMeasuring", nodes);
+            ProductCodeN = CreateOpcUaNode<uint>(controllerFolder, "ProductCodeN", nodes);
             WatchdogCounter = CreateOpcUaNode<uint>(controllerFolder, "WatchdogCounter", nodes);
         }
     }

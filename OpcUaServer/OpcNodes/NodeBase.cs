@@ -1,12 +1,12 @@
 ﻿using Opc.UaFx;
 using System.Collections.Generic;
 
-namespace DexterOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
     public class NodeBase
     {
-        public static string NodeSeparator = Properties.Settings.Default.NodeSeparator;
-        public static string OpcNameSpace = Properties.Settings.Default.OpcNameSpace;
+        public static string NodeSeparator;// = Properties.Settings.Default.NodeSeparator;
+        public static string OpcNameSpace;// = Properties.Settings.Default.OpcNameSpace;
 
         public List<string> NodeTree = new List<string>();
 

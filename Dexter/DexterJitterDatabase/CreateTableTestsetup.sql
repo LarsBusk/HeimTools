@@ -1,7 +1,7 @@
 USE [DexterJitterData]
 GO
 
-/****** Object:  Table [dbo].[TestSetup]    Script Date: 12-04-2024 13:09:01 ******/
+/****** Object:  Table [dbo].[TestSetup]    Script Date: 12-09-2024 10:37:47 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -29,6 +29,7 @@ CREATE TABLE [dbo].[TestSetup](
 	[AutoExport] [bit] NULL,
 	[TicketPrint] [bit] NULL,
 	[ReposClean] [bit] NULL,
+	[SingleResultMode] [bit] NULL,
  CONSTRAINT [PK_dbo.TestSetup] PRIMARY KEY CLUSTERED 
 (
 	[TestSetupId] ASC

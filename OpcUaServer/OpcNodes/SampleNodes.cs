@@ -1,12 +1,13 @@
 ﻿using Opc.UaFx;
 using System.Collections.Generic;
 
-namespace DexterOpcUaTestServer.OpcNodes
+namespace OpcUaServer.OpcNodes
 {
     public class SampleNodes : NodeBase
     {
         public List<IOpcNode> Nodes => nodes;
-        public ParametersNodes ParametersNodes;
+        public ParametersNodesNora ParametersNodesNora;
+        public ParametersNodesDexter ParametersNodesDexter;
         public TimeStampNodes TimeStampNodes;
         public SampleEventNodes EventNodes;
         public OpcDataVariableNode<string> SampleNumber;
@@ -21,11 +22,13 @@ namespace DexterOpcUaTestServer.OpcNodes
 
         private readonly OpcFolderNode sampleFolder;
         private readonly List<IOpcNode> nodes = new List<IOpcNode>();
+        private readonly Instrument instrument;
 
-        public SampleNodes(OpcFolderNode parentFolder)
+        public SampleNodes(OpcFolderNode parentFolder, Instrument instrument)
         {
             this.FolderName = "Sample";
             sampleFolder = new OpcFolderNode(parentFolder, FolderName);
+            this.instrument = instrument;
             SetNodeTree(parentFolder, FolderName);
             GetNodes();
         }
@@ -40,13 +43,22 @@ namespace DexterOpcUaTestServer.OpcNodes
             Quality = CreateOpcUaNode<int>(sampleFolder, "Quality", nodes);
             SampleRegistrationValue = CreateOpcUaNode<string>(sampleFolder, $"Registration{NodeSeparator}Value", nodes);
             MovingAverageCalculated = CreateOpcUaNode<bool>(sampleFolder, "MovingAverageCalculated", nodes);
-
-            ParametersNodes = new ParametersNodes(sampleFolder);
-            nodes.AddRange(ParametersNodes.Nodes);
             TimeStampNodes = new TimeStampNodes(sampleFolder);
             nodes.AddRange(TimeStampNodes.Nodes);
             EventNodes = new SampleEventNodes(sampleFolder);
             nodes.AddRange(EventNodes.Nodes);
+
+            switch (instrument)
+            {
+                case Instrument.Nora:
+                    ParametersNodesNora = new ParametersNodesNora(sampleFolder);
+                    nodes.AddRange(ParametersNodesNora.Nodes);
+                    break;
+                case Instrument.Dexter:
+                    ParametersNodesDexter = new ParametersNodesDexter(sampleFolder);
+                    nodes.AddRange(ParametersNodesDexter.Nodes);
+                    break;
+            }
         }
     }
 }

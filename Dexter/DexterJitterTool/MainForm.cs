@@ -38,7 +38,8 @@ namespace DexterJitterTool
                     MosaicSyncCheck.Checked,
                     autoExportCheck.Checked,
                     ticketPrintCheck.Checked,
-                    reposCleanCheck.Checked);
+                    reposCleanCheck.Checked,
+                    singleResultCheck.Checked);
                 helper.AddDelays(setupId, delayInfos);
                 helper.AddStatistics(setupId);
             }
