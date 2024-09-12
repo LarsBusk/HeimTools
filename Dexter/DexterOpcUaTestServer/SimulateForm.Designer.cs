@@ -31,8 +31,6 @@
             this.StartButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.MeasureTb = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CipTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.StopTb = new System.Windows.Forms.TextBox();
             this.CloseButton = new System.Windows.Forms.Button();
@@ -64,26 +62,10 @@
             this.MeasureTb.Size = new System.Drawing.Size(100, 20);
             this.MeasureTb.TabIndex = 2;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "CIP";
-            // 
-            // CipTb
-            // 
-            this.CipTb.Location = new System.Drawing.Point(36, 85);
-            this.CipTb.Name = "CipTb";
-            this.CipTb.Size = new System.Drawing.Size(100, 20);
-            this.CipTb.TabIndex = 4;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 118);
+            this.label3.Location = new System.Drawing.Point(33, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 5;
@@ -91,7 +73,7 @@
             // 
             // StopTb
             // 
-            this.StopTb.Location = new System.Drawing.Point(36, 134);
+            this.StopTb.Location = new System.Drawing.Point(36, 87);
             this.StopTb.Name = "StopTb";
             this.StopTb.Size = new System.Drawing.Size(100, 20);
             this.StopTb.TabIndex = 6;
@@ -114,8 +96,6 @@
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.StopTb);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.CipTb);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.MeasureTb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StartButton);
@@ -136,8 +116,6 @@
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox MeasureTb;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox CipTb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox StopTb;
         private System.Windows.Forms.Button CloseButton;
