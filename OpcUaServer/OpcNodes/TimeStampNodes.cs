@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Opc.UaFx;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Opc.UaFx;
 
 namespace OpcUaServer.OpcNodes
 {
@@ -25,7 +22,7 @@ namespace OpcUaServer.OpcNodes
 
         public TimeStampNodes(OpcFolderNode parentFolder)
         {
-            this.FolderName = parentFolder.Name.Equals("Sample") ? "TimeStamp" : "Timestamp";
+            this.FolderName = "TimeStamp";
             timeStampFolder = new OpcFolderNode(parentFolder, FolderName);
             SetNodeTree(parentFolder, FolderName);
             GetNodes();
