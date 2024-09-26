@@ -184,7 +184,7 @@ namespace DexterOpcUaTestServer
             // recipeTextBox
             // 
             this.recipeTextBox.Location = new System.Drawing.Point(21, 91);
-            this.recipeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.recipeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.recipeTextBox.Name = "recipeTextBox";
             this.recipeTextBox.Size = new System.Drawing.Size(96, 22);
             this.recipeTextBox.TabIndex = 6;
@@ -291,7 +291,7 @@ namespace DexterOpcUaTestServer
             // alarmsButton
             // 
             this.alarmsButton.Location = new System.Drawing.Point(397, 354);
-            this.alarmsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.alarmsButton.Margin = new System.Windows.Forms.Padding(4);
             this.alarmsButton.Name = "alarmsButton";
             this.alarmsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.alarmsButton.Size = new System.Drawing.Size(109, 33);
@@ -303,7 +303,7 @@ namespace DexterOpcUaTestServer
             // eventsButton
             // 
             this.eventsButton.Location = new System.Drawing.Point(627, 354);
-            this.eventsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eventsButton.Margin = new System.Windows.Forms.Padding(4);
             this.eventsButton.Name = "eventsButton";
             this.eventsButton.Size = new System.Drawing.Size(100, 33);
             this.eventsButton.TabIndex = 13;
@@ -314,7 +314,7 @@ namespace DexterOpcUaTestServer
             // resultCounterLabel
             // 
             this.resultCounterLabel.AutoSize = true;
-            this.resultCounterLabel.Location = new System.Drawing.Point(62, 94);
+            this.resultCounterLabel.Location = new System.Drawing.Point(59, 94);
             this.resultCounterLabel.Name = "resultCounterLabel";
             this.resultCounterLabel.Size = new System.Drawing.Size(94, 16);
             this.resultCounterLabel.TabIndex = 14;

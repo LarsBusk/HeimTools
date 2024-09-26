@@ -374,7 +374,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dexter3.ico" />
-    <Content Include="Nora.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
