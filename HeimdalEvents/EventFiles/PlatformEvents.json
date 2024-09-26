@@ -1,0 +1,120 @@
+{
+  "$schema": "https://fossrndpublic.blob.core.windows.net/heimdall/schemas/event_desc.schema.json",
+  "module": "Platform",
+  "conditions": [
+    {
+      "code": 1000,
+      "identifier": "opcConnected",
+      "message": "OPC UA client connected to server",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 1001,
+      "identifier": "opcServerGone",
+      "message": "The OPC UA server is not incrementing the watchdog",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 1002,
+      "identifier": "opcSlowWrites",
+      "message": "Writes to the OPC UA server are currently being completed too slowly",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 1003,
+      "identifier": "automaticSampleExportFailed",
+      "message": "The automatic sample export failed",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 1004,
+      "identifier": "automaticBatchExportFailed",
+      "message": "The automatic batch export failed",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 1005,
+      "identifier": "updateAvailable",
+      "message": "New update session is ready",
+      "detailedMessage": "An update session is downloaded and ready. Go to the Menu - FossConnect synchronization to activate the update.",
+      "hint": ""
+    }
+  ],
+  "incidents": [
+    {
+      "code": 1,
+      "identifier": "repositoryCleanupFailed",
+      "message": "Repository cleanup failed",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 3,
+      "identifier": "productLimitAbove",
+      "message": "A predicted value is above a product limit",
+      "detailedMessage": "A predicted value is above a product limit",
+      "hint": "A predicted value is above a product limit"
+    },
+    {
+      "code": 4,
+      "identifier": "productLimitBelow",
+      "message": "A predicted value is below a product limit",
+      "detailedMessage": "A predicted value is below a product limit",
+      "hint": "A predicted value is below a product limit"
+    },
+    {
+      "code": 5,
+      "identifier": "notEnoughSubSamples",
+      "message": "There is not enough subsamples to aggregate",
+      "detailedMessage": "There is not enough subsamples to aggregate",
+      "hint": "There is not enough subsamples to aggregate"
+    },
+    {
+      "code": 6,
+      "identifier": "opcSlowConnectionDropped",
+      "message": "Closing and re-opening connection to the OPC UA server",
+      "detailedMessage": "The writes to the OPC UA have been too slow, restarting the connection",
+      "hint": "This might be caused by a problem on the OPC UA server or the network connection to it"
+    },
+    {
+      "code": 7,
+      "identifier": "opcWriteErrorConnectionDropped",
+      "message": "Closing and re-opening connection to the OPC UA server",
+      "detailedMessage": "The writing to the OPC UA has failed, restarting the connection",
+      "hint": "This might be caused by a problem on the OPC UA server or the network connection to it"
+    },
+    {
+      "code": 8,
+      "identifier": "invalidCalculatedFormula",
+      "message": "The {{Product}} product is missing the following parameter(s): {{Parameters}}",
+      "detailedMessage": "One or more calculated model are using parameters that is not available in the applied product.",
+      "hint": "Make sure that the parameters used in the calculated models is linked to the product."
+    },
+    {
+      "code": 9,
+      "identifier": "divideByZeroCalculatedFormula",
+      "message": "The {{Product}} product contains the {{Model}} calculated model, specifying division by zero.",
+      "detailedMessage": "A calculated model specifies division by a zero constant value.",
+      "hint": "Make sure that no calculated model specifies division by zero."
+    },
+    {
+      "code": 10,
+      "identifier": "nonNumericPredictionResult",
+      "message": "The {{Model}} prediction model in the {{Product}} product generated a non-numeric result.",
+      "detailedMessage": "A prediction model generated a non-numeric result.",
+      "hint": "If model is calculated, avoid dividing with parameter inputs that can take on zero value."
+    },
+    {
+      "code": 11,
+      "identifier": "circularReferencesCalculatedFormula",
+      "message": "The {{Product}} product contains circular references in parameters: {{Parameters}}",
+      "detailedMessage": "A product contains circular references.",
+      "hint": "Make sure that none of the calculated models contain circular references with each other."
+    }
+  ]
+}

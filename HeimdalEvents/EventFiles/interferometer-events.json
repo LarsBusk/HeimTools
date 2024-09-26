@@ -1,0 +1,379 @@
+{
+	"$schema": "http://heimdall/schemas/event_desc.schema.json",
+	"module": "IFU",
+  "conditions": [
+    {
+      "code": 1,
+      "identifier": "thermoBoxTempCold",
+      "message": "Interferometer Thermo Box Temperature too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 2,
+      "identifier": "thermoBoxTempHot",
+      "message": "Interferometer Thermo Box Temperature too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 3,
+      "identifier": "blockTempCold",
+      "message": "Interferometer Block Temperature too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 4,
+      "identifier": "blockTempHot",
+      "message": "Interferometer Block Temperature too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 5,
+      "identifier": "sourceTempCold",
+      "message": "Interferometer Source Temperature too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 6,
+      "identifier": "sourceTempHot",
+      "message": "Interferometer Source Temperature too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 7,
+      "identifier": "detectorTempCold",
+      "message": "Detector Temperature too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 8,
+      "identifier": "detectorTempHot",
+      "message": "Detector Temperature too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 9,
+      "identifier": "auxiliaryTempCold",
+      "message": "Auxiliary Temperature too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10,
+      "identifier": "auxiliaryTempHot",
+      "message": "Auxiliary Temperature too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 18,
+      "identifier": "irMaxPctLowA",
+      "message": "IR signal too low (Detector A)",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 19,
+      "identifier": "irMaxPctHighA",
+      "message": "IR signal too high (Detector A)",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 20,
+      "identifier": "irQualityLowA",
+      "message": "IR signal quality too low (Detector A)",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 24,
+      "identifier": "irMaxPctLowB",
+      "message": "IR signal too low (Detector B)",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 25,
+      "identifier": "irMaxPctHighB",
+      "message": "IR signal too high (Detector B)",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 26,
+      "identifier": "irQualityLowB",
+      "message": "IR signal quality too low (Detector B)",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 28,
+      "identifier": "mirrorMovementFailure",
+      "message": "Interferometer Mirror Movement Disturbed",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 32,
+      "identifier": "laserSignalLow",
+      "message": "Laser Signal too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 33,
+      "identifier": "laserSignalHigh",
+      "message": "Laser Signal too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 34,
+      "identifier": "laserModLow",
+      "message": "Laser Modulation (Center) too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 38,
+      "identifier": "irSourceVoltageLow",
+      "message": "IR source voltage too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 39,
+      "identifier": "irSourceVoltageHigh",
+      "message": "IR source voltage too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 40,
+      "identifier": "irSourceCurrentLow",
+      "message": "IR source current too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 41,
+      "identifier": "irSourceCurrentHigh",
+      "message": "IR source current too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 42,
+      "identifier": "irSourcePowerLow",
+      "message": "IR source power too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 43,
+      "identifier": "irSourcePowerHigh",
+      "message": "IR source power too high",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 44,
+      "identifier": "mirrorPosNearLim",
+      "message": "Adjustment of the fixed mirror near limits",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 45,
+      "identifier": "mirrorPosOutsideLim",
+      "message": "Adjustment of the fixed mirror outside limits",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 46,
+      "identifier": "notThermallyStable",
+      "message": "Interferometer is not thermally stable",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 47,
+      "identifier": "ifuDataPcbFailure",
+      "message": "Failed to read settings from the IFU Data PCB",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 48,
+      "identifier": "ifuDataPcbCopyFailed",
+      "message": "Failed to copy module settings to IFU Data PCB",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 49,
+      "identifier": "ifuDataPcbNew",
+      "message": "A new uninitialized IFU Data PCB has been found",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 50,
+      "identifier": "variantMismatch",
+      "message": "Module settings does not match this interferometer variant",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 51,
+      "identifier": "detectorSettingsFailure",
+      "message": "Failed to read settings from detector PCB",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 52,
+      "identifier": "airdryerTempCold",
+      "message": "Air dryer Temperature too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 53,
+      "identifier": "airdryerTempHot",
+      "message": "Air dryer Temperature too high",
+      "detailedMessage": "",
+      "hint": ""
+    }
+  ],
+  "incidents": [
+    {
+      "code": 11,
+      "identifier": "notReadyForMeasure",
+      "message": "Interferometer was not ready for measuring",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 12,
+      "identifier": "peakLost",
+      "message": "IR Center Peak was lost",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 13,
+      "identifier": "retriesExceeded",
+      "message": "Number of measurements retries was exceeded",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 14,
+      "identifier": "delayAdjTimeOut",
+      "message": "Failed to complete delay adjustment within the time limit",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 15,
+      "identifier": "measureTimeOut",
+      "message": "Failed to complete measurement within the time limit",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 16,
+      "identifier": "delayAdjFailedA",
+      "message": "Delay adjustment was not within limits for detector A",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 17,
+      "identifier": "badAlignmentA",
+      "message": "Failed to align interferograms for detector A; the measurement is being restarted",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 21,
+      "identifier": "irSignalSaturatedA",
+      "message": "IR saturated for detector A; the measurement is being restarted",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 22,
+      "identifier": "delayAdjFailedB",
+      "message": "Delay adjustment was not within limits for detector B",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 23,
+      "identifier": "badAlignmentB",
+      "message": "Failed to align interferograms for detector B; the measurement is being restarted",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 27,
+      "identifier": "irSignalSaturatedB",
+      "message": "IR saturated for detector B; the measurement is being restarted",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 29,
+      "identifier": "fullScanLenShort",
+      "message": "Full Scan Length was too short",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 30,
+      "identifier": "fullScanLenLong",
+      "message": "Full Scan Length was too long",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 31,
+      "identifier": "irPeakPosFailure",
+      "message": "IR peak position was not within the limits",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 35,
+      "identifier": "laserModLeftLow",
+      "message": "Laser Modulation (Left Stop) was too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 36,
+      "identifier": "laserModRightLow",
+      "message": "Laser Modulation (Right Stop) was too low",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 37,
+      "identifier": "emergencyIrSourceOff",
+      "message": "IR source was turned off due to overheating",
+      "detailedMessage": "",
+      "hint": ""
+    }
+  ]
+}

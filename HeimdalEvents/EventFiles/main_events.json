@@ -1,0 +1,1625 @@
+{
+	"$schema": "http://heimdall/schemas/event_desc.schema.json",
+	"module": "Main",
+  "conditions": [
+    {
+      "code": 1,
+      "identifier": "ifuModuleMissing",
+      "message": "Interferometer module is missing",
+      "detailedMessage": "",
+      "hint": "Measurements cannot be executed. Restart the instrument on the power button to resolve the issue."
+    },
+    {
+      "code": 2,
+      "identifier": "ifuModuleWarmingUp",
+      "message": "Interferometer is stabilizing",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate until a stable temperature is obtained. Wait until the instrument is stable. This may take up to 30 minutes."
+    },
+    {
+      "code": 3,
+      "identifier": "sequenceFileReadError",
+      "message": "Could not read sequence file",
+      "detailedMessage": "",
+      "hint": "Measurements cannot be executed. Check sequence file."
+    },
+    {
+      "code": 4,
+      "identifier": "sequenceFileVersionIncorrect",
+      "message": "Wrong sequence file version",
+      "detailedMessage": "",
+      "hint": "Measurements cannot be executed. Check sequence file."
+    },
+    {
+      "code": 5,
+      "identifier": "hatchDoorOpen",
+      "message": "Cabinet door is open",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate. Close the cabinet door."
+    },
+    {
+      "code": 17,
+      "identifier": "sampleHeaterTempHigh",
+      "message": "Sample heater temperature too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 18,
+      "identifier": "sampleHeaterTempLow",
+      "message": "Sample heater temperature too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 19,
+      "identifier": "waterHeaterTempHigh",
+      "message": "Water heater temperature too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 20,
+      "identifier": "waterHeaterTempLow",
+      "message": "Water heater temperature too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 21,
+      "identifier": "manifold1TempHigh",
+      "message": "Manifold 1 temperature too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 22,
+      "identifier": "manifold1TempLow",
+      "message": "Manifold 1 temperature too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 23,
+      "identifier": "manifold2TempHigh",
+      "message": "Manifold 2 temperature too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 24,
+      "identifier": "manifold2TempLow",
+      "message": "Manifold 2 temperature too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 25,
+      "identifier": "intakeManifoldTempHigh",
+      "message": "Intake manifold temperature too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 26,
+      "identifier": "intakeManifoldTempLow",
+      "message": "Intake manifold temperature too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Wait for the instrument to stabilize."
+    },
+    {
+      "code": 27,
+      "identifier": "cabinetTempHigh",
+      "message": "Cabinet temperature too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Other modules may become too warm due to this. Verify that cooling water is supplied correctly to the instrument."
+    },
+    {
+      "code": 28,
+      "identifier": "cabinetTempLow",
+      "message": "Cabinet temperature too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 29,
+      "identifier": "pcbTempHigh",
+      "message": "LCU fan temperature too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate. Verify that cooling water is supplied correctly to the instrument."
+    },
+    {
+      "code": 30,
+      "identifier": "pcbTempLow",
+      "message": "LCU fan temperature too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 40,
+      "identifier": "voltage24VHigh",
+      "message": "Supply voltage 24V is too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 41,
+      "identifier": "voltage24VLow",
+      "message": "Supply voltage 24V is too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 42,
+      "identifier": "voltage5VPosHigh",
+      "message": "Supply voltage 5V is too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 43,
+      "identifier": "voltage5VPosLow",
+      "message": "Supply voltage 5V is too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 44,
+      "identifier": "voltage5VNegHigh",
+      "message": "Supply voltage -5V is too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 45,
+      "identifier": "voltage5VNegLow",
+      "message": "Supply voltage -5V is too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 46,
+      "identifier": "voltage3V3High",
+      "message": "Supply voltage 3.3V is too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 47,
+      "identifier": "voltage3V3Low",
+      "message": "Supply voltage 3.3V is too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 48,
+      "identifier": "voltage1V8High",
+      "message": "Supply voltage 1.8V is too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 49,
+      "identifier": "voltage1V8Low",
+      "message": "Supply voltage 1.8V is too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 50,
+      "identifier": "voltage1VHigh",
+      "message": "Supply voltage 1V is too high",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 51,
+      "identifier": "voltage1VLow",
+      "message": "Supply voltage 1V is too low",
+      "detailedMessage": "",
+      "hint": "The results may not be accurate."
+    },
+    {
+      "code": 10000,
+      "identifier": "valve1Broken",
+      "message": "Valve V1 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10001,
+      "identifier": "valve1Defective",
+      "message": "Valve V1 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10002,
+      "identifier": "valve1WrongPosition",
+      "message": "Valve V1 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10003,
+      "identifier": "valve1UnknownId",
+      "message": "Valve V1 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10004,
+      "identifier": "valve1NotConnectedOrBroken",
+      "message": "Valve V1 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10005,
+      "identifier": "valve1NotConnected",
+      "message": "Valve V1 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10006,
+      "identifier": "valve2Broken",
+      "message": "Valve V2 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10007,
+      "identifier": "valve2Defective",
+      "message": "Valve V2 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10008,
+      "identifier": "valve2WrongPosition",
+      "message": "Valve V2 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10009,
+      "identifier": "valve2UnknownId",
+      "message": "Valve V2 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10010,
+      "identifier": "valve2NotConnectedOrBroken",
+      "message": "Valve V2 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10011,
+      "identifier": "valve2NotConnected",
+      "message": "Valve V2 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10012,
+      "identifier": "valve3Broken",
+      "message": "Valve V3 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10013,
+      "identifier": "valve3Defective",
+      "message": "Valve V3 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10014,
+      "identifier": "valve3WrongPosition",
+      "message": "Valve V3 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10015,
+      "identifier": "valve3UnknownId",
+      "message": "Valve V3 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10016,
+      "identifier": "valve3NotConnectedOrBroken",
+      "message": "Valve V3 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10017,
+      "identifier": "valve3NotConnected",
+      "message": "Valve V3 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10018,
+      "identifier": "valve4Broken",
+      "message": "Valve V4 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10019,
+      "identifier": "valve4Defective",
+      "message": "Valve V4 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10020,
+      "identifier": "valve4WrongPosition",
+      "message": "Valve V4 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10021,
+      "identifier": "valve4UnknownId",
+      "message": "Valve V4 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10022,
+      "identifier": "valve4NotConnectedOrBroken",
+      "message": "Valve V4 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10023,
+      "identifier": "valve4NotConnected",
+      "message": "Valve V4 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10024,
+      "identifier": "valve5Broken",
+      "message": "Valve V5 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10025,
+      "identifier": "valve5Defective",
+      "message": "Valve V5 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10026,
+      "identifier": "valve5WrongPosition",
+      "message": "Valve V5 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10027,
+      "identifier": "valve5UnknownId",
+      "message": "Valve V5 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10028,
+      "identifier": "valve5NotConnectedOrBroken",
+      "message": "Valve V5 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10029,
+      "identifier": "valve5NotConnected",
+      "message": "Valve V5 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10030,
+      "identifier": "valve6Broken",
+      "message": "Valve V6 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10031,
+      "identifier": "valve6Defective",
+      "message": "Valve V6 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10032,
+      "identifier": "valve6WrongPosition",
+      "message": "Valve V6 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10033,
+      "identifier": "valve6UnknownId",
+      "message": "Valve V6 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10034,
+      "identifier": "valve6NotConnectedOrBroken",
+      "message": "Valve V6 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10035,
+      "identifier": "valve6NotConnected",
+      "message": "Valve V6 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10036,
+      "identifier": "valve7Broken",
+      "message": "Valve V7 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10037,
+      "identifier": "valve7Defective",
+      "message": "Valve V7 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10038,
+      "identifier": "valve7WrongPosition",
+      "message": "Valve V7 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10039,
+      "identifier": "valve7UnknownId",
+      "message": "Valve V7 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10040,
+      "identifier": "valve7NotConnectedOrBroken",
+      "message": "Valve V7 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10041,
+      "identifier": "valve7NotConnected",
+      "message": "Valve V7 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10042,
+      "identifier": "valve8Broken",
+      "message": "Valve V8 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10043,
+      "identifier": "valve8Defective",
+      "message": "Valve V8 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10044,
+      "identifier": "valve8WrongPosition",
+      "message": "Valve V8 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10045,
+      "identifier": "valve8UnknownId",
+      "message": "Valve V8 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10046,
+      "identifier": "valve8NotConnectedOrBroken",
+      "message": "Valve V8 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10047,
+      "identifier": "valve8NotConnected",
+      "message": "Valve V8 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10048,
+      "identifier": "valve9Broken",
+      "message": "Valve V9 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10049,
+      "identifier": "valve9Defective",
+      "message": "Valve V9 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10050,
+      "identifier": "valve9WrongPosition",
+      "message": "Valve V9 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10051,
+      "identifier": "valve9UnknownId",
+      "message": "Valve V9 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10052,
+      "identifier": "valve9NotConnectedOrBroken",
+      "message": "Valve V9 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10053,
+      "identifier": "valve9NotConnected",
+      "message": "Valve V9 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10060,
+      "identifier": "valve11Broken",
+      "message": "Valve V11 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10061,
+      "identifier": "valve11Defective",
+      "message": "Valve V11 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10062,
+      "identifier": "valve11WrongPosition",
+      "message": "Valve V11 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10063,
+      "identifier": "valve11UnknownId",
+      "message": "Valve V11 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10064,
+      "identifier": "valve11NotConnectedOrBroken",
+      "message": "Valve V11 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10065,
+      "identifier": "valve11NotConnected",
+      "message": "Valve V11 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10066,
+      "identifier": "valve12Broken",
+      "message": "Valve V12 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10067,
+      "identifier": "valve12Defective",
+      "message": "Valve V12 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10068,
+      "identifier": "valve12WrongPosition",
+      "message": "Valve V12 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10069,
+      "identifier": "valve12UnknownId",
+      "message": "Valve V12 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10070,
+      "identifier": "valve12NotConnectedOrBroken",
+      "message": "Valve V12 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10071,
+      "identifier": "valve12NotConnected",
+      "message": "Valve V12 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10072,
+      "identifier": "valve13Broken",
+      "message": "Valve V13 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10073,
+      "identifier": "valve13Defective",
+      "message": "Valve V13 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10074,
+      "identifier": "valve13WrongPosition",
+      "message": "Valve V13 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10075,
+      "identifier": "valve13UnknownId",
+      "message": "Valve V13 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10076,
+      "identifier": "valve13NotConnectedOrBroken",
+      "message": "Valve V13 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10077,
+      "identifier": "valve13NotConnected",
+      "message": "Valve V13 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10078,
+      "identifier": "valve14Broken",
+      "message": "Valve V14 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10079,
+      "identifier": "valve14Defective",
+      "message": "Valve V14 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10080,
+      "identifier": "valve14WrongPosition",
+      "message": "Valve V14 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10081,
+      "identifier": "valve14UnknownId",
+      "message": "Valve V14 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10082,
+      "identifier": "valve14NotConnectedOrBroken",
+      "message": "Valve V14 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10083,
+      "identifier": "valve14NotConnected",
+      "message": "Valve V14 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10084,
+      "identifier": "valve15Broken",
+      "message": "Valve V15 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10085,
+      "identifier": "valve15Defective",
+      "message": "Valve V15 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10086,
+      "identifier": "valve15WrongPosition",
+      "message": "Valve V15 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10087,
+      "identifier": "valve15UnknownId",
+      "message": "Valve V15 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10088,
+      "identifier": "valve15NotConnectedOrBroken",
+      "message": "Valve V15 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10089,
+      "identifier": "valve15NotConnected",
+      "message": "Valve V15 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10090,
+      "identifier": "valve16Broken",
+      "message": "Valve V16 is connected, but the valve or cable is broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10091,
+      "identifier": "valve16Defective",
+      "message": "Valve V16 is defective (short circuited)",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10092,
+      "identifier": "valve16WrongPosition",
+      "message": "Valve V16 is connected in the wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10093,
+      "identifier": "valve16UnknownId",
+      "message": "Valve V16 connected has unknown ID",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10094,
+      "identifier": "valve16NotConnectedOrBroken",
+      "message": "Valve V16 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10095,
+      "identifier": "valve16NotConnected",
+      "message": "Valve V16 is not connected",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10108,
+      "identifier": "motorM1NotConnectedOrBroken",
+      "message": "Motor M1 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10109,
+      "identifier": "motorM1IsConnectedButInWrongPosition",
+      "message": "Motor M1 is connected, but in wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10110,
+      "identifier": "motorM1IsConnectedButIdIsUnknown",
+      "message": "Motor M1 is connected, but the ID is unknown",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10111,
+      "identifier": "motorM1PumpFrictionIsHigh",
+      "message": "Motor M1 pump friction is high",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10112,
+      "identifier": "motorM2NotConnectedOrBroken",
+      "message": "Motor M2 is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10113,
+      "identifier": "motorM2IsConnectedButInWrongPosition",
+      "message": "Motor M2 is connected, but in wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10114,
+      "identifier": "motorM2IsConnectedButIdIsUnknown",
+      "message": "Motor M2 is connected, but the ID is unknown",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10115,
+      "identifier": "motorM2PumpFrictionIsHigh",
+      "message": "Motor M2 pump friction is high",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10116,
+      "identifier": "motorBpvNotConnectedOrBroken",
+      "message": "Motor BPV is not connected or broken",
+      "detailedMessage": "",
+      "hint": "Instrument cannot operate due to this."
+    },
+    {
+      "code": 10117,
+      "identifier": "motorBpvIsConnectedButInWrongPosition",
+      "message": "Motor BPV is connected, but in wrong position",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10118,
+      "identifier": "motorBpvIsConnectedButIdIsUnknown",
+      "message": "Motor BPV is connected, but the ID is unknown",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10119,
+      "identifier": "motorBpvPumpFrictionIsHigh",
+      "message": "Motor BPV friction is high",
+      "detailedMessage": "",
+      "hint": "Instrument performance may be affected."
+    },
+    {
+      "code": 10120,
+      "identifier": "heaterM1NotConnected",
+      "message": "Heater M1 is not connected",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10121,
+      "identifier": "heaterM1TempLow",
+      "message": "Heater M1 temperature is low",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10122,
+      "identifier": "heaterM1NtcSensorBroken",
+      "message": "Heater M1 temperature sensor is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10123,
+      "identifier": "heaterM1NtcSensorShortCircuited",
+      "message": "Heater M1 temperature sensor is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10124,
+      "identifier": "heaterM1ElementOrCableBroken",
+      "message": "Heater M1 cable or heating element is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10125,
+      "identifier": "heaterM1ElementOrCableShortCircuited",
+      "message": "Heater M1 cable or heating element is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10126,
+      "identifier": "heaterM1NoThermalContact",
+      "message": "Heater M1 sensor and heating element has limited thermal contact",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10127,
+      "identifier": "heaterM2NotConnected",
+      "message": "Heater M2 is not connected",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10128,
+      "identifier": "heaterM2TempLow",
+      "message": "Heater M2 temperature is low",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10129,
+      "identifier": "heaterM2NtcSensorBroken",
+      "message": "Heater M2 temperature sensor is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10130,
+      "identifier": "heaterM2NtcSensorShortCircuited",
+      "message": "Heater M2 temperature sensor is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10131,
+      "identifier": "heaterM2ElementOrCableBroken",
+      "message": "Heater M2 cable or heating element is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10132,
+      "identifier": "heaterM2ElementOrCableShortCircuited",
+      "message": "Heater M2 cable or heating element is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10133,
+      "identifier": "heaterM2NoThermalContact",
+      "message": "Heater M2 sensor and heating element has limited thermal contact",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10134,
+      "identifier": "intakeCoolerNotConnected",
+      "message": "Intake cooler is not connected",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10135,
+      "identifier": "intakeCoolerTempHigh",
+      "message": "Intake cooler temperature is high",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10136,
+      "identifier": "intakeCoolerSensorBroken",
+      "message": "Intake cooler temperature sensor is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10137,
+      "identifier": "intakeCoolerSensorShortCircuited",
+      "message": "Intake cooler temperature sensor is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10138,
+      "identifier": "intakeCoolerElementOrCableBroken",
+      "message": "Intake cooler cable or element is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10139,
+      "identifier": "intakeCoolerElementOrCableShortCircuited",
+      "message": "Intake cooler cable or element is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10140,
+      "identifier": "intakeCoolerNoThermalContact",
+      "message": "Intake cooler sensor and element has limited thermal contact",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10141,
+      "identifier": "sampleHeaterCoolerNotConnected",
+      "message": "Sample heater is not connected",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10142,
+      "identifier": "sampleHeaterCoolerTempHigh",
+      "message": "Sample heater temperature is high",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10143,
+      "identifier": "sampleHeaterCoolerSensorBroken",
+      "message": "Sample heater temperature sensor is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10144,
+      "identifier": "sampleHeaterCoolerSensorShortCircuited",
+      "message": "Sample heater temperature sensor is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10145,
+      "identifier": "sampleHeaterCoolerElementOrCableBroken",
+      "message": "Sample heater cable or element is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10146,
+      "identifier": "sampleHeaterCoolerElementOrCableShortCircuited",
+      "message": "Sample heater cable or element is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10147,
+      "identifier": "sampleHeaterCoolerNoThermalContact",
+      "message": "Sample heater sensor and element has limited thermal contact",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10148,
+      "identifier": "heaterSwNotConnected",
+      "message": "Water heater is not connected",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10149,
+      "identifier": "heaterSwInletSensorBroken",
+      "message": "Water heater inlet NTC sensor is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10150,
+      "identifier": "heaterSWCenterSensorBroken",
+      "message": "Water heater center NTC sensor is broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10151,
+      "identifier": "heaterSwInletSensorShortCircuited",
+      "message": "Water heater inlet NTC sensor is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10152,
+      "identifier": "heaterSwCenterSensorShortCircuited",
+      "message": "Water heater center NTC sensor is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10153,
+      "identifier": "heaterSwHeaterElementDisconnectedOrBroken",
+      "message": "Water heater element is disconnected or broken",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10154,
+      "identifier": "heaterSwHeaterElementShortCircuited",
+      "message": "Water heater element is short circuited",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10155,
+      "identifier": "heaterSwNoOrLimitedThermalContact",
+      "message": "Water heater element and sensor has limited thermal contact",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10156,
+      "identifier": "heaterSwSensorsSwapped",
+      "message": "Water heater center and inlet NTC seems to be swapped",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10157,
+      "identifier": "heaterSwTempLow",
+      "message": "Water heater temperature is low",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    },
+    {
+      "code": 10158,
+      "identifier": "heaterSwAdcCheckError",
+      "message": "Water heater electrical error",
+      "detailedMessage": "",
+      "hint": "Results may not be accurate."
+    }
+  ],
+  "incidents": [
+    {
+      "code": 20000,
+      "identifier": "seqEvent20000",
+      "message": "Back pressure valve could not be adjusted",
+      "detailedMessage": "",
+      "hint": "The back pressure valve could not be adjusted within the accepted tolerances during the zero setting. Results may not be accurate until the issue is corrected. Verify that demineralized water is connected correctly to the instrument as this is needed for adjustment of the back pressure valve."
+    },
+    {
+      "code": 20001,
+      "identifier": "seqEvent20001",
+      "message": "M2 pump cylinder not filled during zero setting",
+      "detailedMessage": "",
+      "hint": "M2 pump is not filled with water as expected during zero setting. Verify that demineralized water is connected correctly to the instrument. The instrument cannot operate if demineralized water supply is missing."
+    },
+    {
+      "code": 20002,
+      "identifier": "seqEvent20002",
+      "message": "Pressure too low during sample measurement",
+      "detailedMessage": "",
+      "hint": "The pressure was too low during the measurement of the sample. The result may not be accurate. Too low pressure may be caused by air in either the production process line or the demineralized water supply. Verify that product is available in the process pipe (or pipette on check samples). Also, verify that demineralized water is connected correctly."
+    },
+    {
+      "code": 20003,
+      "identifier": "seqEvent20003",
+      "message": "Pressure too high during sample measurement",
+      "detailedMessage": "",
+      "hint": "The pressure in front of the cuvette filter was too high during measurement of the sample. The result may not be accurate. Too high pressure may be caused by clogged cuvette filter."
+    },
+    {
+      "code": 20004,
+      "identifier": "seqEvent20004",
+      "message": "Pressure too low during reference measurement",
+      "detailedMessage": "",
+      "hint": "The pressure of the system was too low during the reference measurement. The result may not be accurate. Too low pressure during reference measurements may be caused by missing water supply. Verify that the supply of demineralized water is connected correctly."
+    },
+    {
+      "code": 20005,
+      "identifier": "seqEvent20005",
+      "message": "Pressure too high during reference measurement",
+      "detailedMessage": "",
+      "hint": "The result may not be accurate. Too high pressure during reference measurement may be caused by a non adjusted flow system. Run a zero setting to adjust the system again."
+    },
+    {
+      "code": 20006,
+      "identifier": "seqEvent20006",
+      "message": "Pump cylinder M2 not filled at the start of clean",
+      "detailedMessage": "",
+      "hint": "Pump was not filled with water in the cleaning cycle. Verify that demineralized water is connected correctly. System will not be cleaned as intended if water is not connected."
+    },
+    {
+      "code": 20007,
+      "identifier": "seqEvent20007",
+      "message": "Pressure safety of M1 pump activated during CIP",
+      "detailedMessage": "",
+      "hint": "Action is only needed if pressure safety is activated more than once within one hour of operation."
+    },
+    {
+      "code": 20008,
+      "identifier": "seqEvent20008",
+      "message": "Pressure too high when flushing cuvette with sample",
+      "detailedMessage": "",
+      "hint": "The sample may be too viscous for the current viscosity setting. Change the sample Viscosity to high in the Product configurator - Product - Settings. Alternatively, the cuvette filter is blocked. Run a clean."
+    },
+    {
+      "code": 20009,
+      "identifier": "seqEvent20009",
+      "message": "Pressure safety of M1 pump activated during measurement",
+      "detailedMessage": "",
+      "hint": "Result may not be accurate due to pressure safety activation. Action is only needed if pressure safety is activated more than once within one hour of operation."
+    },
+    {
+      "code": 20010,
+      "identifier": "seqEvent20010",
+      "message": "Sample at pipette contaminated during cleaning",
+      "detailedMessage": "",
+      "hint": "A sample was detected at the pipette during execution of instrument cleaning procedure. The sample has been contaminated during cleaning of the instrument."
+    },
+    {
+      "code": 20011,
+      "identifier": "seqEvent20011",
+      "message": "Could not reach desired pressure in pressure test during zero setting",
+      "detailedMessage": "",
+      "hint": "A potential critical leak has been detected during the execution of the zero setting. The zero setting was therefore aborted. The local FOSS representative must be notified to take corrective actions."
+    },
+    {
+      "code": 20012,
+      "identifier": "seqEvent20012",
+      "message": "Pressure drop in pressure test during zero setting",
+      "detailedMessage": "",
+      "hint": "A potential critical leak has been detected during the execution of the zero setting. The zero setting was therefore aborted. The local FOSS representative must be notified to take corrective actions."
+    },
+    {
+      "code": 20013,
+      "identifier": "seqEvent20013",
+      "message": "P1 sensor not reading expected value during start of zero setting",
+      "detailedMessage": "",
+      "hint": "Either pressure sensor 1 is not working or valves do not open as expected. Zero setting is aborted due to this."
+    },
+    {
+      "code": 20014,
+      "identifier": "seqEvent20014",
+      "message": "P2 sensor not reading expected value during start of zero setting",
+      "detailedMessage": "",
+      "hint": "Either pressure sensor 2 is not working or valves do not open as expected. Zero setting is aborted due to this."
+    },
+    {
+      "code": 20015,
+      "identifier": "seqEvent20015",
+      "message": "Pressure safety of M1 pump activated during process clean",
+      "detailedMessage": "",
+      "hint": "Action is only needed if pressure safety is activated more than once within one hour of operation."
+    },
+    {
+      "code": 20016,
+      "identifier": "seqEvent20016",
+      "message": "Pressure safety of M1 pump activated",
+      "detailedMessage": "",
+      "hint": "Action is only needed if pressure safety is activated more than once within one hour of operation."
+    },
+    {
+      "code": 20017,
+      "identifier": "seqEvent20017",
+      "message": "Pressure safety of M1 pump activated during cleaning of flow system",
+      "detailedMessage": "",
+      "hint": "Action is only needed if pressure safety is activated more than once within one hour of operation."
+    },
+    {
+      "code": 20018,
+      "identifier": "seqEvent20018",
+      "message": "Unable to fill M1 pump cylinder",
+      "detailedMessage": "",
+      "hint": "Verify that water is supplied correctly to the instrument."
+    },
+    {
+      "code": 20019,
+      "identifier": "seqEvent20019",
+      "message": "Unable to fill M2 pump cylinder",
+      "detailedMessage": "",
+      "hint": "Verify that water is supplied correctly to the instrument."
+    },
+    {
+      "code": 20100,
+      "identifier": "seqEvent20100",
+      "message": "Interferometer did not finish in time",
+      "detailedMessage": "",
+      "hint": "The interferometer did not finish measurement as expected. The measurement was canceled, and no result was produced."
+    },
+    {
+      "code": 20200,
+      "identifier": "seqEvent20200",
+      "message": "P1 sensor not reading expected value",
+      "detailedMessage": "",
+      "hint": "Either pressure sensor 1 is not working or valves do not open as expected."
+    },
+    {
+      "code": 20201,
+      "identifier": "seqEvent20201",
+      "message": "P2 sensor not reading expected value",
+      "detailedMessage": "",
+      "hint": "Either pressure sensor 2 is not working or valves do not open as expected."
+    },
+    {
+      "code": 20202,
+      "identifier": "seqEvent20202",
+      "message": "P1 and P2 sensors not aligned as expected",
+      "detailedMessage": "",
+      "hint": "At least one of the pressure sensors is not accurate or the valves do not open as expected."
+    },
+    {
+      "code": 20203,
+      "identifier": "seqEvent20203",
+      "message": "Pressure response from M1 pump movement not as expected",
+      "detailedMessage": "",
+      "hint": "M1 pump does not move, or a leak is present in M1 module."
+    },
+    {
+      "code": 20204,
+      "identifier": "seqEvent20204",
+      "message": "Pressure response from M2 pump movement not as expected",
+      "detailedMessage": "",
+      "hint": "M2 pump does not move, or a leak is present in M2 module."
+    },
+    {
+      "code": 20205,
+      "identifier": "seqEvent20205",
+      "message": "Flow string from M1 to pipette through V2 and V11 was not open as expected",
+      "detailedMessage": "",
+      "hint": "V2 or V11 is not working or connected correctly. Alternatively, the string is blocked."
+    },
+    {
+      "code": 20206,
+      "identifier": "seqEvent20206",
+      "message": "Flow string from M1 to waste through V4 and V5 was not open as expected",
+      "detailedMessage": "",
+      "hint": "V4 or V5 is not working or connected correctly. Alternatively, the string is blocked."
+    },
+    {
+      "code": 20207,
+      "identifier": "seqEvent20207",
+      "message": "Flow string from M2 to waste through V6 and V5 was not open as expected",
+      "detailedMessage": "",
+      "hint": "V5 or V6 is not working or connected correctly. Alternatively, the string is blocked."
+    },
+    {
+      "code": 20208,
+      "identifier": "seqEvent20208",
+      "message": "Flow string from M2 to waste through V7, cuvette, and V5 was not open as expected",
+      "detailedMessage": "",
+      "hint": "V5 or V7 is not working or connected correctly. Alternatively, the string is blocked."
+    },
+    {
+      "code": 20209,
+      "identifier": "seqEvent20209",
+      "message": "Flow string between M1 and M2 through V4 and V6 was not open as expected",
+      "detailedMessage": "",
+      "hint": "V4 or V6 is not working or connected correctly. Alternatively, the string is blocked."
+    },
+    {
+      "code": 20210,
+      "identifier": "seqEvent20210",
+      "message": "Flow string between M1 and M2 through V4, cuvette, and V7 was not open as expected",
+      "detailedMessage": "",
+      "hint": "V4 or V7 is not working or connected correctly. Alternatively, the string is blocked."
+    },
+    {
+      "code": 20211,
+      "identifier": "seqEvent20211",
+      "message": "Flow string between M1 and M2 through V3, V13, and V8 was not open as expected",
+      "detailedMessage": "",
+      "hint": "V3, V13, or V8 is not working or connected correctly. Alternatively, the string is blocked."
+    },
+    {
+      "code": 20212,
+      "identifier": "seqEvent20212",
+      "message": "Leak in M1 detected",
+      "detailedMessage": "",
+      "hint": "M1 module is not closed off as expected."
+    },
+    {
+      "code": 20213,
+      "identifier": "seqEvent20213",
+      "message": "M1 leaked to surroundings while V2 was open",
+      "detailedMessage": "",
+      "hint": "Opening V2 with all other valves closed introduces a leak from M1 to surroundings. Most likely a leak is present in sample heater, intake manifold or in one of the connections between these and M1 module."
+    },
+    {
+      "code": 20214,
+      "identifier": "seqEvent20214",
+      "message": "M1 leaked to surroundings while V2 and V3 were open",
+      "detailedMessage": "",
+      "hint": "Opening V3 with V2 already open introduces a leak from M1 to surroundings. Most likely a leak is present in cleaning mixing unit or in the connection between this and M1."
+    },
+    {
+      "code": 20215,
+      "identifier": "seqEvent20215",
+      "message": "M1 leaked to surroundings when V2, V3, and V4 were open",
+      "detailedMessage": "",
+      "hint": "Opening V4 with V2 and V3 already open introduces a leak from M1 to surroundings. Most likely a leak is present in the cuvette module or in any of the connections to this. Alternatively, a leak is present in the back pressure module or M2 module."
+    },
+    {
+      "code": 20216,
+      "identifier": "seqEvent20216",
+      "message": "M1 leaked to surroundings while V2, V3, V4, and V6 were open",
+      "detailedMessage": "",
+      "hint": "Opening V6 with V2, V3 and V4 already open introduces a leak from M1 to surroundings. Most likely a leak is present in the M2 module."
+    },
+    {
+      "code": 20217,
+      "identifier": "seqEvent20217",
+      "message": "M1 leaked to surroundings while V2, V3, V4, V6, and V7 were open",
+      "detailedMessage": "",
+      "hint": "Opening V7 with V2, V3, V4, and V6 already open introduces a leak from M1 to surroundings."
+    },
+    {
+      "code": 20218,
+      "identifier": "seqEvent20218",
+      "message": "M1 leaked to surroundings while V2, V3, V4, V6, V7, and V8 were open",
+      "detailedMessage": "",
+      "hint": "Opening V8 with V2, V3, V4, V6 and V7 already open introduces a leak from M1 to surroundings. A leak is most likely present in the water supply system."
+    },
+    {
+      "code": 20219,
+      "identifier": "seqEvent20219",
+      "message": "M1 leaked to surroundings while V2, V3, V4, V6, V7, V8, and V13 were open",
+      "detailedMessage": "",
+      "hint": "Opening V13 with V2, V3, V4, V6, V7 and V8 already open introduces a leak from M1 to surroundings."
+    },
+    {
+      "code": 20220,
+      "identifier": "seqEvent20220",
+      "message": "Valve V16 was not opening as intended or water supply blocked",
+      "detailedMessage": "",
+      "hint": "Something is blocking the tube to the water supply or V16 does not open as intended."
+    },
+    {
+      "code": 20221,
+      "identifier": "seqEvent20221",
+      "message": "Unable to fill pump cylinder in M1 with water during Flow System Check",
+      "detailedMessage": "",
+      "hint": "Water does not reach M1 module as intended. Either water is not connected properly or valve V16 does not open as intended. Alternatively, a lot of air is present in the supplied water."
+    },
+    {
+      "code": 20222,
+      "identifier": "seqEvent20222",
+      "message": "Unable to fill pump cylinder in M2 with water during Flow System Check",
+      "detailedMessage": "",
+      "hint": "Water does not reach M2 module as intended when pulling from water supply. Either water is not connected properly or valve V16 does not open as intended. Alternatively, a lot of air is present in the supplied water."
+    },
+    {
+      "code": 20223,
+      "identifier": "seqEvent20223",
+      "message": "Valve V12 was not opening as intended",
+      "detailedMessage": "",
+      "hint": "Valve V12 is most likely not opening as intended. Alternatively, something else is blocking the access to surroundings through the clean concentrate string and pipette."
+    },
+    {
+      "code": 20224,
+      "identifier": "seqEvent20224",
+      "message": "System was not open towards process",
+      "detailedMessage": "",
+      "hint": "The string from process connection (if attached) through V1 is not opening as intended. This could be due to V1 not opening or e.g., a manual valve not being open. The solution to the problem depends on whether anything is connected to the instrument on the Swagelock fitting on the cabinet side."
+    },
+    {
+      "code": 20225,
+      "identifier": "seqEvent20225",
+      "message": "Back pressure valve could not be adjusted during Flow System Check",
+      "detailedMessage": "",
+      "hint": "It is not possible to adjust the back pressure valve either due to a failing V9 or back pressure valve motor."
+    },
+    {
+      "code": 20226,
+      "identifier": "seqEvent20226",
+      "message": "Not able to reach desired pressure during high pressure test of M1 module",
+      "detailedMessage": "",
+      "hint": "A leak is present in the M1 module, which prevents pressure to go to 8 bars during motor movement. Alternatively, the motor cannot deliver the expected force."
+    },
+    {
+      "code": 20227,
+      "identifier": "seqEvent20227",
+      "message": "Leak detected in M1 during high pressure leak check",
+      "detailedMessage": "",
+      "hint": "A leak is present in the M1 module, which prevents the pressure to be maintained over 10 s."
+    },
+    {
+      "code": 20228,
+      "identifier": "seqEvent20228",
+      "message": "Not able to reach desired pressure during high pressure test of M2 module",
+      "detailedMessage": "",
+      "hint": "A leak is present in the M2 module, which prevents pressure to go to 8 bars during motor movement. Alternatively, the motor cannot deliver the expected force."
+    },
+    {
+      "code": 20229,
+      "identifier": "seqEvent20229",
+      "message": "Leak detected in M2 during high pressure leak check",
+      "detailedMessage": "",
+      "hint": "A leak is present in the M2 module, which prevents the pressure to be maintained over 10 s."
+    },
+    {
+      "code": 20230,
+      "identifier": "seqEvent20230",
+      "message": "Not able to reach desired pressure during high pressure test of M1 module while V3 was open",
+      "detailedMessage": "",
+      "hint": "A leak is present in volume seen by pressure sensor 1 when V3 is open, which prevents pressure to go to 8 bars during motor movement. Alternatively, the motor cannot deliver the expected force."
+    },
+    {
+      "code": 20231,
+      "identifier": "seqEvent20231",
+      "message": "Leak detected in M1 module while V3 was open",
+      "detailedMessage": "",
+      "hint": "A leak is present in volume seen by pressure sensor 1 when V3 is open, which prevents the pressure to be maintained over 10 s. Leak is most likely present in volume between V3, V12 and V13."
+    },
+    {
+      "code": 20232,
+      "identifier": "seqEvent20232",
+      "message": "Not able to reach desired pressure during high pressure test of M1 module while V4 was open",
+      "detailedMessage": "",
+      "hint": "A leak is present in volume seen by pressure sensor 1 when V4 is open, which prevents pressure to go to 8 bars during motor movement. Alternatively, the motor cannot deliver the expected force. Leak is most likely present in the volume beyond V4 seen from M1."
+    },
+    {
+      "code": 20233,
+      "identifier": "seqEvent20233",
+      "message": "Leak detected in M1 module while V4 was open",
+      "detailedMessage": "",
+      "hint": "A leak is present in volume seen by pressure sensor 1 when V4 is open, which prevents the pressure to be maintained over 10 s. Leak is most likely present in the volume beyond V4 seen from M1."
+    },
+    {
+      "code": 20234,
+      "identifier": "seqEvent20234",
+      "message": "Not able to reach desired pressure during high pressure test of M2 module while V8 was open",
+      "detailedMessage": "",
+      "hint": "A leak is present in volume seen by pressure sensor 2 when V8 is open, which prevents pressure to go to 8 bars during motor movement. Alternatively, the motor cannot deliver the expected force. Leak is most likely present in the volume beyond V8 seen from M2, which is the water supply part of the flow system."
+    },
+    {
+      "code": 20235,
+      "identifier": "seqEvent20235",
+      "message": "Leak detected in M2 module while V8 was open",
+      "detailedMessage": "",
+      "hint": "A leak is present in volume seen by pressure sensor 2 when V8 is open, which prevents the pressure to be maintained over 10 s. The leak is most likely present in the volume beyond V8 seen from M2, which is the water supply part of the flow system."
+    },
+    {
+      "code": 20236,
+      "identifier": "seqEvent20236",
+      "message": "Not able to reach desired pressure in M1 during high pressure full system",
+      "detailedMessage": "",
+      "hint": "A leak is present in the internal part of the flow system, which prevents pressure to go to 8 bars during motor movement. Alternatively, the motor cannot deliver the expected force. The leak is most likely present in the intake part of flow system with sample heater and intake manifold as other parts have been tested separately."
+    },
+    {
+      "code": 20237,
+      "identifier": "seqEvent20237",
+      "message": "Leak detected in flow system during high pressure test",
+      "detailedMessage": "",
+      "hint": "A leak is present in the internal part of the flow system, which prevents the pressure to be maintained over 10 s. The leak is most likely present in the intake part of flow system with sample heater and intake manifold as other parts have been tested separately."
+    }
+  ]
+}

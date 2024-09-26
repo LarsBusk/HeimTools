@@ -1,0 +1,568 @@
+{
+	"$schema": "http://heimdall/schemas/event_desc.schema.json",
+	"module": "Backend",
+  "conditions": [
+    {
+      "code": 1000,
+      "identifier": "dummyTestCondition",
+      "message": "Dummy Test Condition Message",
+      "detailedMessage": "Dummy Test Condition Detailed Message.",
+      "hint": "Dummy Test Condition Hint."
+    },
+    {
+      "code": 1001,
+      "identifier": "noCleanProductCondition",
+      "message": "No product with sample type 'Clean' found",
+      "detailedMessage": "",
+      "hint": "Update instrument configuration with IQX or Product configurator."
+    },
+    {
+      "code": 1002,
+      "identifier": "moreThanOneCleanProductsCondition",
+      "message": "Too many products with sample type 'Clean' found",
+      "detailedMessage": "",
+      "hint": "Remove or deactivate all 'Clean' products except one."
+    },
+    {
+      "code": 1003,
+      "identifier": "noZeroProductCondition",
+      "message": "No product with sample type 'Zero' found",
+      "detailedMessage": "",
+      "hint": "Update instrument configuration with IQX or Product configurator."
+    },
+    {
+      "code": 1004,
+      "identifier": "moreThanOneZeroProductsCondition",
+      "message": "Too many products with sample type 'Zero' found",
+      "detailedMessage": "",
+      "hint": "Remove or deactivate all 'Zero' products except one."
+    },
+    {
+      "code": 1007,
+      "identifier": "noProcessCleanProductCondition",
+      "message": "No product with sample type 'ProcessClean' found",
+      "detailedMessage": "",
+      "hint": "Update instrument configuration with IQX or Product configurator."
+    },
+    {
+      "code": 1008,
+      "identifier": "moreThanOneProcessCleanProductCondition",
+      "message": "Too many products with sample type 'ProcessClean' found",
+      "detailedMessage": "",
+      "hint": "Remove or deactivate all 'ProcessClean' products except one."
+    },
+    {
+      "code": 1009,
+      "identifier": "noCIPProductCondition",
+      "message": "No product with sample type 'CIP' found",
+      "detailedMessage": "",
+      "hint": "Update instrument configuration with IQX or Product configurator."
+    },
+    {
+      "code": 1010,
+      "identifier": "moreThanOneCIPProductCondition",
+      "message": "Too many products with sample type 'CIP' found",
+      "detailedMessage": "",
+      "hint": "Remove or deactivate all 'CIP' products except one."
+    },
+    {
+      "code": 1011,
+      "identifier": "noDiagnosticProductCondition",
+      "message": "No product with sample type 'InstrumentDiagnosticsReagent' found",
+      "detailedMessage": "",
+      "hint": "Update instrument configuration with IQX or Product configurator."
+    },
+    {
+      "code": 1012,
+      "identifier": "moreThanOneDiagnosticProductCondition",
+      "message": "Too many products with sample type 'InstrumentDiagnosticsReagent' found",
+      "detailedMessage": "",
+      "hint": "Remove or deactivate all 'InstrumentDiagnosticsReagent' products except one."
+    },
+    {
+      "code": 1013,
+      "identifier": "cleanInPlaceRunning",
+      "message": "CIP operation is ongoing, initiated by the PLC",
+      "detailedMessage": "No operations are allowed during CIP.",
+      "hint": "The PLC will signal when CIP has ended."
+    },
+    {
+      "code": 1014,
+      "identifier": "demineralizedWaterConductivityTooHigh",
+      "message": "Demineralized water conductivity too high",
+      "detailedMessage": "Measurement accuracy and system wear may be affected.",
+      "hint": "Verify the quality of the connected demineralized water source."
+    },
+    {
+      "code": 1015,
+      "identifier": "zeroSettingIncomplete",
+      "message": "Zero setting is incomplete",
+      "detailedMessage": "Zero setting is incomplete. This might affect performance.",
+      "hint": "Run a new zero setting or continue running line measurements until this is solved."
+    },
+    {
+      "code": 1016,
+      "identifier": "zeroSettingInvalid",
+      "message": "Zero setting is invalid",
+      "detailedMessage": "Limited zero data is available. This might affect performance.",
+      "hint": "Run a new zero setting or continue running line measurements until this is solved."
+    },
+    {
+      "code": 1017,
+      "identifier": "noStandardisationProductCondition",
+      "message": "No product with sample type 'Standardization' found",
+      "detailedMessage": "",
+      "hint": "Update instrument configuration with IQX or Product configurator."
+    },
+    {
+      "code": 1018,
+      "identifier": "moreThanOneStandardisationProductCondition",
+      "message": "Too many products with sample type 'Standardization' found",
+      "detailedMessage": "",
+      "hint": "Remove or deactivate all 'Standardization' products except one."
+    },
+    {
+      "code": 1019,
+      "identifier": "loggingWithMatlabEnabledWhileBackendRunning",
+      "message": "Logging with MATLAB is enabled",
+      "detailedMessage": "The hardware setting 'EnableLoggingWithMatlab' cannot be enabled while backend is running.",
+      "hint": "Use FSS to disable the 'EnableLoggingWithMatlab' setting on the instrument."
+    },
+    {
+      "code": 1020,
+      "identifier": "notCorrectControllerModeNTag",
+      "message": "Required OPC UA tag 'Controller.ModeN' is invalid",
+      "detailedMessage": "",
+      "hint": "Inspect OPC UA client status for further details."
+    },
+    {
+      "code": 1021,
+      "identifier": "notCorrectControllerProductCodeTag",
+      "message": "OPC UA tags 'Controller.ProductCodeN' and 'Controller.ProductCode' are invalid",
+      "detailedMessage": "At least one of the tags must be valid.",
+      "hint": "Inspect OPC UA client status for further details."
+    },
+    {
+      "code": 1022,
+      "identifier": "notCorrectInstrumentModeTag",
+      "message": "OPC UA tags 'Instrument.Mode' and 'Instrument.ModeN' are invalid",
+      "detailedMessage": "At least one of the tags must be valid.",
+      "hint": "Inspect OPC UA client status for further details."
+    },
+    {
+      "code": 1023,
+      "identifier": "liquidDetectedInCabinet",
+      "message": "Liquid detected in the cabinet",
+      "detailedMessage": "Liquid is detected in the bottom of the cabinet. This causes the instrument to go into an error state which shuts down all external connections to protect the instrument from damage. Shut off external supplies of cooling water, demineralized water, and process connection.",
+      "hint": "A leak may be present at either the cooling system or the flow system. If no liquid is seen, the sensor may be damaged or contaminated."
+    },
+    {
+      "code": 1024,
+      "identifier": "anInstrumentCheckDefinitionMustBePerformedForCurrentProduct",
+      "message": "An instrument check sample definition must be performed for the current product",
+      "detailedMessage": "There is no valid instrument check sample definition for the current product. In order to run an instrument check sample, a definition sample is needed.",
+      "hint": "Choose 'Run as definition' when selecting the product and start a manual measurement from the instrument."
+    },
+    {
+      "code": 1025,
+      "identifier": "ifuModuleDisconnected",
+      "message": "Interferometer is disconnected",
+      "detailedMessage": "",
+      "hint": "Restart the instrument."
+    },
+    {
+      "code": 1026,
+      "identifier": "embeddedDidNotAnswer",
+      "message": "Main module is currently not responding",
+      "detailedMessage": "",
+      "hint": "If the issue persists, restart the instrument."
+    },
+    {
+      "code": 1027,
+      "identifier": "noDelayedResultAllowed",
+      "message": "'No delayed result' tag is active",
+      "detailedMessage": "No pipette measurements is possible. Wait until the tag is inactive.",
+      "hint": "The option for 'No delayed result' can be changed using OPC UA."
+    },
+    {
+      "code": 1028,
+      "identifier": "uninterruptibleMode",
+      "message": "'UninterruptibleMode' tag is active",
+      "detailedMessage": "No pipette measurements are possible. Wait until the tag is inactive.",
+      "hint": "The option for 'UninterruptibleMode' can be changed using OPC UA."
+    }
+  ],
+  "incidents": [
+    {
+      "code": 10000,
+      "identifier": "dummyTestIncident",
+      "message": "Dummy Test Incident Message",
+      "detailedMessage": "Dummy Test Incident Detailed Message.",
+      "hint": "Dummy Test Incident Hint."
+    },
+    {
+      "code": 10001,
+      "identifier": "cancelledMeasurement",
+      "message": "Measurement was canceled by a user",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10002,
+      "identifier": "airInSample",
+      "message": "Air in sample detected",
+      "detailedMessage": "",
+      "hint": "The sample spectrum indicates air in the sample. The result may not be accurate."
+    },
+    {
+      "code": 10003,
+      "identifier": "darkSignalTooHigh",
+      "message": "Dark signal too high",
+      "detailedMessage": "",
+      "hint": "The result cannot be trusted."
+    },
+    {
+      "code": 10004,
+      "identifier": "signalIntensityTooLow",
+      "message": "Signal intensity too low",
+      "detailedMessage": "",
+      "hint": "The result may not be accurate."
+    },
+    {
+      "code": 10005,
+      "identifier": "airInReferenceWater",
+      "message": "Air in zero liquid detected",
+      "detailedMessage": "",
+      "hint": "If the problem persists, verify that demineralized water is connected correctly to the instrument. To resolve problem try running a zero setting."
+    },
+    {
+      "code": 10006,
+      "identifier": "interferometerMisaligned",
+      "message": "Interferometer misaligned",
+      "detailedMessage": "",
+      "hint": "The result may not be accurate. To resolve problem try running a zero setting."
+    },
+    {
+      "code": 10007,
+      "identifier": "humidityIncrease",
+      "message": "Humidity increase detected",
+      "detailedMessage": "",
+      "hint": "The result may not be accurate while humidity instability is present."
+    },
+    {
+      "code": 10008,
+      "identifier": "limitedZeroData",
+      "message": "Limited zero data was available",
+      "detailedMessage": "Insufficient scans in reference buffer for valid calculation.",
+      "hint": "Run a new zero setting or continue running line measurements until this is solved."
+    },
+    {
+      "code": 10009,
+      "identifier": "noValidReference",
+      "message": "Zero setting was invalid during sample measurement",
+      "detailedMessage": "Limited zero data was available. This might affect performance.",
+      "hint": "Run a new zero setting or continue running line measurements until this is solved."
+    },
+    {
+      "code": 10010,
+      "identifier": "internalCalculationError",
+      "message": "Internal calculation error",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10011,
+      "identifier": "manualMeasurementRemovedFromQueueByPlc",
+      "message": "Manual measurement removed from queue",
+      "detailedMessage": "Manual measurement was removed from queue because 'NoDelayedResultsAllowed' was set from the PLC.",
+      "hint": "Wait until 'NoDelayedResultsAllowed' is set to false before queuing a new manual measurement."
+    },
+    {
+      "code": 10012,
+      "identifier": "sampleAborted",
+      "message": "Sample was aborted",
+      "detailedMessage": "The sample was aborted due to an error while measuring.",
+      "hint": ""
+    },
+    {
+      "code": 10013,
+      "identifier": "measurementStartedWithoutProduct",
+      "message": "Started measuring without a line product selected",
+      "detailedMessage": "",
+      "hint": "Select a line product by using tag 'Controller.ProductCode' or 'Controller.ProductCodeN' and restart the measurement."
+    },
+    {
+      "code": 10014,
+      "identifier": "globalHWarningLimitExceeded",
+      "message": "Global H for {{parameterName}}: {{value}} was above warning limit {{limit}}",
+      "detailedMessage": "",
+      "hint": "Consider whether the prediction model matches the product type."
+    },
+    {
+      "code": 10015,
+      "identifier": "globalHLimitExceeded",
+      "message": "Global H for {{parameterName}}: {{value}} was above action limit {{limit}}",
+      "detailedMessage": "",
+      "hint": "Consider whether the prediction model matches the product type."
+    },
+    {
+      "code": 10016,
+      "identifier": "funnelCalculationParameterOutsideLimit",
+      "message": "{{parameterName}} running average {{averageValue}}{{unit}} was outside the accumulated instrument check sample limit {{limitValue}}{{unit}} {{numberOfTimes}} times",
+      "detailedMessage": "",
+      "hint": "Consider a slope/intercept or bias adjustment of this parameter."
+    },
+    {
+      "code": 10017,
+      "identifier": "productLimitMissingParameterValueOnDefinition",
+      "message": "No instrument check sample definition was measured for {{parameterName}}",
+      "detailedMessage": "",
+      "hint": "Perform a new instrument check sample definition."
+    },
+    {
+      "code": 10018,
+      "identifier": "valueAboveAbsoluteActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product action limit {{limitValue}}{{unit}}",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10019,
+      "identifier": "valueBelowAbsoluteActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product action limit {{limitValue}}{{unit}}",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10020,
+      "identifier": "valueAboveAbsoluteWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product warning limit {{limitValue}}{{unit}}",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10021,
+      "identifier": "valueBelowAbsoluteWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product warning limit {{limitValue}}{{unit}}",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10022,
+      "identifier": "valueAboveRelativeActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product action limit {{limitValue}}{{unit}} ({{limit}}% off target {{targetValue}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10023,
+      "identifier": "valueBelowRelativeActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product action limit {{limitValue}}{{unit}} ({{limit}}% off target {{targetValue}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10024,
+      "identifier": "valueAboveRelativeWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product warning limit {{limitValue}}{{unit}} ({{limit}}% off target {{targetValue}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10025,
+      "identifier": "valueBelowRelativeWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product warning limit {{limitValue}}{{unit}} ({{limit}}% off target {{targetValue}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10026,
+      "identifier": "valueAboveDifferentialActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product action limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} + limit {{limit}}{{unit}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10027,
+      "identifier": "valueBelowDifferentialActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product action limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} - limit {{limit}}{{unit}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10028,
+      "identifier": "valueAboveDifferentialWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product warning limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} + limit {{limit}}{{unit}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10029,
+      "identifier": "valueBelowDifferentialWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product warning limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} - limit {{limit}}{{unit}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10030,
+      "identifier": "valueAboveSdScaledDifferentialActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product action limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} + scale {{limit}}{{unit}} * sd {{sd}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10031,
+      "identifier": "valueBelowSdScaledDifferentialActionLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product action limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} - scale {{limit}}{{unit}} * sd {{sd}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10032,
+      "identifier": "valueAboveSdScaledDifferentialWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was above product warning limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} + scale {{limit}}{{unit}} * sd {{sd}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10033,
+      "identifier": "valueBelowSdScaledDifferentialWarningLimit",
+      "message": "{{parameterName}}: {{value}}{{unit}} was below product warning limit {{limitValue}}{{unit}} (target {{targetValue}}{{unit}} - scale {{limit}}{{unit}} * sd {{sd}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10034,
+      "identifier": "missingProductLimitInstrumentCheck",
+      "message": "No instrument check sample limits have been defined for {{parameterName}}",
+      "detailedMessage": "",
+      "hint": "Use the product configurator to define the limits. Both an upper and a lower limit have to be defined."
+    },
+    {
+      "code": 10035,
+      "identifier": "funnelCalculationParameterOutsideLimitFirstTime",
+      "message": "{{parameterName}} running average {{averageValue}}{{unit}} was outside the accumulated instrument check sample limit {{limitValue}}{{unit}} for the first time",
+      "detailedMessage": "",
+      "hint": "If the problem persists, consider a slope/intercept or bias adjustment of this parameter."
+    },
+    {
+      "code": 10036,
+      "identifier": "insufficientScansReceived",
+      "message": "Insufficient scans received. Received: {{received}}, Required: {{total}}",
+      "detailedMessage": "",
+      "hint": "Instrument was not able to produce a result."
+    },
+    {
+      "code": 10037,
+      "identifier": "sampleDelayDueToNotFinishedPreviousMeasurement",
+      "message": "Sample was delayed by one second",
+      "detailedMessage": "",
+      "hint": "Execution of measurement was postponed due to internal processes. No action is required."
+    },
+    {
+      "code": 10038,
+      "identifier": "zeroSettingNotValidFactoryStandardization",
+      "message": "Zero setting was invalid for factory Standardization",
+      "detailedMessage": "",
+      "hint": "Reference buffer contains invalid entries after zero setting. Therefore, the Factory Standardization cannot be performed. Verify the water supply and instrument stability and restart the procedure."
+    },
+    {
+      "code": 10039,
+      "identifier": "notMatchMasterSpectrum",
+      "message": "Measured spectrum did not match the master spectrum",
+      "detailedMessage": "",
+      "hint": "Check that the correct reagent (FTIR Performance Standard 753) was used and that the instrument was in a stable state. Retest with a new bottle of FTIR Performance Standard 753."
+    },
+    {
+      "code": 10040,
+      "identifier": "measurementUnstable",
+      "message": "Measurements were unstable",
+      "detailedMessage": "",
+      "hint": "The measurements of the FTIR Performance Standard 753 were unstable and could not be used for the factory Standardization. Ensure that the instrument is in a stable state. Retest with a new bottle of FTIR Performance Standard 753."
+    },
+    {
+      "code": 10041,
+      "identifier": "offsetCorrectionOutsideRange",
+      "message": "Calculated parameter was out of range",
+      "detailedMessage": "",
+      "hint": "The calculated 'OffsetCorrection' was outside the acceptable range. Ensure that the instrument is in a stable state. Check that the FTIR Performance Standard 753 used is in good condition (e.g., is not too warm or has been open for too long) and that the entered batch factor ({{batchFactor}}) is correct. Retest with a new bottle of FTIR Performance Standard 753."
+    },
+    {
+      "code": 10042,
+      "identifier": "offsetCorrectionCanNotBeWritten",
+      "message": "An error occurred while trying to write 'OffsetCorrection' value to the interferometer",
+      "detailedMessage": "",
+      "hint": "This is most likely due to an internal communication error within the instrument."
+    },
+    {
+      "code": 10043,
+      "identifier": "movingAverageNotCalculated",
+      "message": "Moving average could not be calculated",
+      "detailedMessage": "",
+      "hint": "The criterion for calculating a moving average value was not met. The single replicate result will be used instead."
+    },
+    {
+      "code": 10044,
+      "identifier": "offsetCorrectionOutsideValidRange",
+      "message": "OffsetCorrection ({{offsetCorrection}}) was out of range",
+      "detailedMessage": "",
+      "hint": "Calculated OffsetCorrection was outside the acceptable range. Ensure that the instrument is in a stable state. Check that the FTIR Performance Standard 753 used is in good condition (e.g., is not too warm or has been open for too long) and that the entered batch factor is correct. Retest with a new bottle of FTIR Performance Standard 753."
+    },
+    {
+      "code": 10045,
+      "identifier": "glycCorrOutsideValidRange",
+      "message": "GlycCorr ({{glycCorr}}) was out of range",
+      "detailedMessage": "",
+      "hint": "GlycCorr was outside the acceptable range. Ensure that the instrument is in a stable state. Check that the FTIR Performance Standard 753 used is in good condition (e.g., is not too warm or has been open for too long) and that the entered batch factor is correct. Retest with a new bottle of FTIR Performance Standard 753."
+    },
+    {
+      "code": 10046,
+      "identifier": "glycSDOutsideValidRange",
+      "message": "GlycSD ({{glycSD}}) was out of range",
+      "detailedMessage": "",
+      "hint": "GlycSD was outside the acceptable range. Ensure that the instrument is in a stable state. Check that the FTIR Performance Standard 753 used is in good condition (e.g., is not too warm or has been open for too long) and that the entered batch factor is correct. Retest with a new bottle of FTIR Performance Standard 753."
+    },
+    {
+      "code": 10047,
+      "identifier": "unkownDiagnosticsEventReceived",
+      "message": "Unknown event from internal calculation engine ({{diagnosticsEventKind}})",
+      "detailedMessage": "",
+      "hint": ""
+    },
+    {
+      "code": 10048,
+      "identifier": "missingBatchfactorForFactoryStandardization",
+      "message": "Batch factor was not available for factory standardization",
+      "detailedMessage": "",
+      "hint": "Provide a valid batch factor when using factory standardization procedure."
+    },
+    {
+      "code": 10049,
+      "identifier": "failedToCreateCalculatedParametersModelData",
+      "message": "Failed to apply calculated model parameter profile: {{parameterProfile}} for product: {{product}}",
+      "detailedMessage": "",
+      "hint": "Ensure that the calculated model profile has a valid configuration."
+    },
+    {
+      "code": 10050,
+      "identifier": "pipetteCleanWasNotAllowed",
+      "message": "Clean was not allowed to start",
+      "detailedMessage": "Blocked by the 'No delayed result' option as set by the OPC UA.",
+      "hint": "The option for 'No delayed result' can be changed using the OPC UA."
+    },
+    {
+      "code": 10051,
+      "identifier": "processCleanWasPostponed",
+      "message": "Automatic process clean was not allowed to start",
+      "detailedMessage": "Blocked by the 'No delayed result' option as set by the OPC UA.",
+      "hint": "The option for 'No delayed result' can be changed using the OPC UA."
+    },
+    {
+      "code": 10052,
+      "identifier": "cleanMixRatioBelowLimit",
+      "message": "Concentration of the cleaning liquid was too low",
+      "detailedMessage": "",
+      "hint": "The concentration of the internally mixed cleaning liquid was determined to be too low. A too low concentration will result in insufficient cleaning and possibly blockage of the system. Run the care sequence “Prime Clean Concentrate” and run another zero setting to see if the problem persists."
+    }
+  ]
+}
