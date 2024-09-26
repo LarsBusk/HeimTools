@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.10.35201.131</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-09-12T08:49:19.6257635Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-09-13T09:42:40.4826754Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -22,7 +22,7 @@
             <Value>=Parameters!StartDate.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@EndDate">
-            <Value>=Parameters!EndDate.Value</Value>
+            <Value>=DateAdd(DateInterval.Day, 1, Parameters!EndDate.Value)</Value>
           </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
@@ -95,6 +95,10 @@
           <DataField>CountOverLimit</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="InLimit">
+          <DataField>InLimit</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="MaxTime">
           <DataField>MaxTime</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -102,6 +106,10 @@
         <Field Name="MinTime">
           <DataField>MinTime</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="PercentInLimit">
+          <DataField>PercentInLimit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="ReposCleanState">
           <Value>=IIf(Fields!ReposClean.Value, "X", "")</Value>
@@ -117,6 +125,16 @@
         </Field>
         <Field Name="SingleResultState">
           <Value>=Iif(Fields!SingleResultMode.Value,"X","")</Value>
+        </Field>
+        <Field Name="PercentInLimitValue">
+          <Value>=Iif(Fields!SingleResultMode.Value,
+CStr(Round(Fields!PercentInLimit.Value,2)),
+"-")</Value>
+        </Field>
+        <Field Name="PercentUnderValue">
+          <Value>=Iif(Fields!SingleResultMode.Value,
+"-",
+CStr(Round(Fields!PercentUnder.Value, 2)))</Value>
         </Field>
       </Fields>
     </DataSet>
@@ -222,6 +240,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.61458in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.66134in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.69792in</Width>
@@ -691,6 +712,41 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Percent In Limit</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>=Variables!TableHeaderFontColor.Value</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>=Variables!FillLight.Value</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Header13Tb">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -698,7 +754,20 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Batch</Value>
+                                  <Value>Batch /</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>=Variables!TableHeaderFontColor.Value</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Single</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -1097,6 +1166,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1133,24 +1203,61 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PercentUnder">
+                        <Textbox Name="PercentUnderValue">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PercentUnder.Value</Value>
+                                  <Value>=Fields!PercentUnderValue.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>=Iif(Fields!SingleResultMode.Value,"Center","Right")</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PercentUnder</rd:DefaultName>
+                          <rd:DefaultName>PercentUnderValue</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="PercentInLimitValue">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!PercentInLimitValue.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>=IIf(Fields!SingleResultMode.Value,"Right","Center")</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>PercentInLimitValue</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1216,6 +1323,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1231,13 +1339,14 @@
             <DataSetName>JitterSummary</DataSetName>
             <SortExpressions>
               <SortExpression>
-                <Value>=Fields!MinTime.Value</Value>
+                <Value>=Fields!MaxTime.Value</Value>
+                <Direction>Descending</Direction>
               </SortExpression>
             </SortExpressions>
             <Top>1.96403in</Top>
             <Left>0.31432cm</Left>
             <Height>1.26041in</Height>
-            <Width>7.15565in</Width>
+            <Width>7.81699in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1669,7 +1778,7 @@ Microsoft.VisualBasic.Constants.vbCrLf</Value>
         <Height>13.93092cm</Height>
         <Style />
       </Body>
-      <Width>20.50049cm</Width>
+      <Width>20.98967cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

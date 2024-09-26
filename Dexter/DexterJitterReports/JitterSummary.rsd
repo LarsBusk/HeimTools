@@ -34,6 +34,8 @@
 	,	gs.SampleCount
 	,	gs.PercentUnder
 	,	gs.CountOverLimit
+                   ,                  gs.InLimit
+                   ,                  gs.PercentInLimit
 	,	gs.MaxTime
 	,	gs.MinTime
 From	dbo.fn_get_summary() gs
@@ -110,9 +112,17 @@ Where tse.TestTime Between @StartDate and @EndDate</CommandText>
         <DataField>CountOverLimit</DataField>
         <rd:TypeName>System.Int32</rd:TypeName>
       </Field>
+      <Field Name="InLimit">
+        <DataField>InLimit</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
       <Field Name="MaxTime">
         <DataField>MaxTime</DataField>
         <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="PercentInLimit">
+        <DataField>PercentInLimit</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
       </Field>
       <Field Name="MinTime">
         <DataField>MinTime</DataField>
