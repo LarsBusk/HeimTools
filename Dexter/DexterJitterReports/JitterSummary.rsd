@@ -29,18 +29,22 @@
 	,	tse.AutoExport
 	,	tse.DexterVersion
 	,	tse.PlatformVersion
-                   ,                 tse.SingleResultMode
+	,	tse.SingleResultMode
+	,	tsy.SystemName
 	,	gs.MaxDelay
 	,	gs.SampleCount
 	,	gs.PercentUnder
 	,	gs.CountOverLimit
-                   ,                  gs.InLimit
-                   ,                  gs.PercentInLimit
+    ,	gs.InLimit
+	,	gs.PercentInLimit
 	,	gs.MaxTime
 	,	gs.MinTime
+	,	ROW_NUMBER() Over (Order By gs.MaxTime Desc) as RowN
 From	dbo.fn_get_summary() gs
 Inner Join TestSetup tse
 On tse.TestSetupId = gs.TestSetupId
+Inner Join TestSystem tsy
+On tse.TestSystemId = tsy.TestSystemId
 Where tse.TestTime Between @StartDate and @EndDate</CommandText>
     </Query>
     <Fields>
@@ -96,6 +100,10 @@ Where tse.TestTime Between @StartDate and @EndDate</CommandText>
         <DataField>SingleResultMode</DataField>
         <rd:TypeName>System.Boolean</rd:TypeName>
       </Field>
+      <Field Name="SystemName">
+        <DataField>SystemName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
       <Field Name="MaxDelay">
         <DataField>MaxDelay</DataField>
         <rd:TypeName>System.Int32</rd:TypeName>
@@ -127,6 +135,10 @@ Where tse.TestTime Between @StartDate and @EndDate</CommandText>
       <Field Name="MinTime">
         <DataField>MinTime</DataField>
         <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="RowN">
+        <DataField>RowN</DataField>
+        <rd:TypeName>System.Int64</rd:TypeName>
       </Field>
     </Fields>
   </DataSet>

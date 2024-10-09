@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.10.35201.131</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-09-13T09:42:40.4826754Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-09T08:18:17.5255723Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -79,6 +79,10 @@
           <DataField>MaxDelay</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="SystemName">
+          <DataField>SystemName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="SingleResultMode">
           <DataField>SingleResultMode</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
@@ -116,6 +120,10 @@
         </Field>
         <Field Name="MosaicSyncState">
           <Value>=IIf(Fields!MosaicSync.Value, "X", "")</Value>
+        </Field>
+        <Field Name="RowN">
+          <DataField>RowN</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
         <Field Name="TicketPrintState">
           <Value>=Iif(Fields!TicketPrint.Value, "X", "")</Value>
@@ -203,6 +211,12 @@ CStr(Round(Fields!PercentUnder.Value, 2)))</Value>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
+                  <Width>0.5155in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.828in</Width>
+                </TablixColumn>
+                <TablixColumn>
                   <Width>0.5625in</Width>
                 </TablixColumn>
                 <TablixColumn>
@@ -252,6 +266,74 @@ CStr(Round(Fields!PercentUnder.Value, 2)))</Value>
                 <TablixRow>
                   <Height>1.01041in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Test #</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>=Variables!TableHeaderFontColor.Value</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>=Variables!FillLight.Value</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Instrument</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>=Variables!TableHeaderFontColor.Value</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>=Variables!FillLight.Value</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Header1Tb">
@@ -812,6 +894,66 @@ CStr(Round(Fields!PercentUnder.Value, 2)))</Value>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="RowN">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!RowN.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>RowN</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="SystemName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SystemName.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>SystemName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="ConveyorSpeed">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1166,7 +1308,6 @@ CStr(Round(Fields!PercentUnder.Value, 2)))</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1324,6 +1465,8 @@ CStr(Round(Fields!PercentUnder.Value, 2)))</Value>
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1346,7 +1489,7 @@ CStr(Round(Fields!PercentUnder.Value, 2)))</Value>
             <Top>1.96403in</Top>
             <Left>0.31432cm</Left>
             <Height>1.26041in</Height>
-            <Width>7.81699in</Width>
+            <Width>9.16049in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1778,7 +1921,7 @@ Microsoft.VisualBasic.Constants.vbCrLf</Value>
         <Height>13.93092cm</Height>
         <Style />
       </Body>
-      <Width>20.98967cm</Width>
+      <Width>25.16947cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

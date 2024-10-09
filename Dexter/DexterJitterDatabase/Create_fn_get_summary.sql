@@ -1,12 +1,13 @@
 USE [DexterJitterData]
 GO
 
-/****** Object:  UserDefinedFunction [dbo].[fn_get_summary]    Script Date: 26-09-2024 10:51:30 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_get_summary]    Script Date: 02-10-2024 13:50:00 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -64,7 +65,7 @@ RETURN
 		From		Delays d
 		Inner Join TestSetup tse
 		On			tse.TestSetupId = d.TestSetupId
-		Where		[Delay] Between 700.0/tse.ConveyorSpeed-200 And 700.0/tse.ConveyorSpeed+200
+		Where		[Delay] Between 700.0/tse.ConveyorSpeed*1000-200 And 700.0/tse.ConveyorSpeed*1000+200
 		Group By	d.TestSetupId
 		) InSide
 		On InSide.TestSetupId = d.TestSetupId	
