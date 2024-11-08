@@ -49,9 +49,11 @@ namespace CreatePsc2KepserverCsvFiles
                 case "Int32":
                     return "Long";
                 case "UInt32":
-                    return isArray ? "DWordArray" : "DWord";
+                    return isArray ? "DWord Array" : "DWord";
                 case "UInt16":
-                    return isArray ? "WordArray" : "Word";
+                    return isArray ? "Word Array" : "Word";
+                case "String":
+                    return isArray ? "String Array" : "String";
                 default:
                     return typeName;
 
@@ -106,14 +108,15 @@ namespace CreatePsc2KepserverCsvFiles
 
             switch (type)
             {
-                case "String":
-                    address = "?";
+                case "String Array":
+                    address = $"S{stringAddress:D5}[{dimension}]";
+                    stringAddress += 2 * dimension;
                     break;
-                case "DWordArray":
+                case "DWord Array":
                     address = $"D{numberAddress:D5}[{dimension}]";
                     numberAddress += 4 * dimension;
                     break;
-                case "WordArray":
+                case "Word Array":
                     address = $"D{numberAddress:D5}[{dimension}]";
                     numberAddress += 2 * dimension;
                     break;
