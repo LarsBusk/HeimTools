@@ -83,7 +83,7 @@ namespace OpcUaServer
         {
             _opcUaNodes = new OpcUaNodes(homeFolder, instrument);
 
-            Opc.UaFx.Licenser.LicenseKey = Keys.Version2Key;
+            Opc.UaFx.Licenser.LicenseKey = Keys.Version3Key;
 
             return new OpcServer(
                 serverName,

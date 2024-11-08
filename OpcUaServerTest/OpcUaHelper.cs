@@ -3,7 +3,7 @@ using OpcUaServer.OpcNodes;
 using System;
 using System.Security.Cryptography.X509Certificates;
 
-namespace NoraOpcUaTestServer
+namespace OpcUaServerTest
 {
     public class OpcUaHelper
     {
@@ -31,20 +31,17 @@ namespace NoraOpcUaTestServer
         #region Public methods
 
         public OpcUaHelper(string serverName, string homeFolder, bool enableAnonymous, bool enableUserAndPassword,
-            bool enableCertificate, string userName, string password, X509Certificate2 certificate)
+            bool enableCertificate)
         {
             this.enableUserAndPassword = enableUserAndPassword;
             this.enableAnonymous = enableAnonymous;
             this.enableCertificate = enableCertificate;
-            this.userName = userName;
-            this.password = password;
-            this.certificate = certificate;
 
             OpcUaServer = new OpcUaServer.OpcUaServer(
                 serverName, 
                 homeFolder, 
-                Properties.Settings.Default.OpcNameSpace,
-                Properties.Settings.Default.NodeSeparator,
+                "2",
+                ".",
                 Instrument.Nora);
 
 
