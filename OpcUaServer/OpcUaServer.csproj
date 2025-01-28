@@ -315,11 +315,13 @@
     <Compile Include="OpcNodes\ControllerNodesNora.cs" />
     <Compile Include="OpcNodes\ControllerNodes.cs" />
     <Compile Include="OpcNodes\EventNodes.cs" />
+    <Compile Include="OpcNodes\SampleEventNodesNora.cs" />
     <Compile Include="OpcNodes\InstrumentNodesDexter.cs" />
     <Compile Include="OpcNodes\InstrumentNodesNora.cs" />
     <Compile Include="OpcNodes\InstrumentNodes.cs" />
     <Compile Include="OpcNodes\NodeBase.cs" />
     <Compile Include="OpcNodes\AlarmNodesNora.cs" />
+    <Compile Include="OpcNodes\EventNodesNora.cs" />
     <Compile Include="OpcNodes\OpcUaNodes.cs" />
     <Compile Include="OpcNodes\ParametersNodesDexter.cs" />
     <Compile Include="OpcNodes\ParametersNodesNora.cs" />

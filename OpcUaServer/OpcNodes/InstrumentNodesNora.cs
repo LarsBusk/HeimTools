@@ -16,6 +16,7 @@ namespace OpcUaServer.OpcNodes
         public OpcDataVariableNode<int> TimeUntilProcessClean;
         public OpcDataVariableNode<bool> PipetteProductIsCheckSampleDefinition;
         public OpcDataVariableNode<int> ModeN;
+        public OpcDataVariableNode<bool> UpdateSessionAvailable;
 
         public List<IOpcNode> Nodes => nodes;
 
@@ -45,6 +46,7 @@ namespace OpcUaServer.OpcNodes
             PipetteProductIsCheckSampleDefinition =
                 CreateOpcUaNode<bool>(instrumentFolder, "PipetteProductIsCheckSampleDefinition", nodes);
             ModeN = CreateOpcUaNode<int>(instrumentFolder, "ModeN", nodes);
+            UpdateSessionAvailable = CreateOpcUaNode<bool>(instrumentFolder, "UpdateSessionAvailable", nodes);
         }
     }
 }

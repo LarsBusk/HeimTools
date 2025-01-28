@@ -15,6 +15,7 @@ namespace OpcUaServer.OpcNodes
         public ControllerNodesNora ControllerNodesNora;
         public SampleNodes SampleNodes;
         public EventNodes EventNodes;
+        public EventNodesNora NoraEventNodes;
         public AlarmNodes AlarmNodes;
         public AlarmNodesNora AlarmNodesNora;
         public AlarmNodesDexter AlarmNodesDexter;
@@ -58,6 +59,8 @@ namespace OpcUaServer.OpcNodes
                     nodes.AddRange(ControllerNodesNora.Nodes);
                     InstrumentNodesNora = new InstrumentNodesNora(homeFolder);
                     nodes.AddRange(InstrumentNodesNora.Nodes);
+                    NoraEventNodes = new EventNodesNora(homeFolder);
+                    nodes.AddRange(NoraEventNodes.Nodes);
                     break;
                 case Instrument.Dexter:
                     AlarmNodesDexter = new AlarmNodesDexter(homeFolder);

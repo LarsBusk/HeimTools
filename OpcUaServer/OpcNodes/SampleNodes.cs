@@ -10,6 +10,7 @@ namespace OpcUaServer.OpcNodes
         public ParametersNodesDexter ParametersNodesDexter;
         public TimeStampNodes TimeStampNodes;
         public SampleEventNodes EventNodes;
+        public SampleEventNodesNora SampleEventNodesNora;
         public OpcDataVariableNode<string> SampleNumber;
         public OpcDataVariableNode<int> SampleNumberN;
         public OpcDataVariableNode<string> ProductCode;
@@ -42,7 +43,7 @@ namespace OpcUaServer.OpcNodes
             ProductName = CreateOpcUaNode<string>(sampleFolder, "ProductName", nodes);
             Quality = CreateOpcUaNode<int>(sampleFolder, "Quality", nodes);
             SampleRegistrationValue = CreateOpcUaNode<string>(sampleFolder, $"Registration{NodeSeparator}Value", nodes);
-            MovingAverageCalculated = CreateOpcUaNode<bool>(sampleFolder, "MovingAverageCalculated", nodes);
+            MovingAverageCalculated = CreateOpcUaNode<bool>(sampleFolder, "MovingAverageReported", nodes);
             TimeStampNodes = new TimeStampNodes(sampleFolder);
             nodes.AddRange(TimeStampNodes.Nodes);
             EventNodes = new SampleEventNodes(sampleFolder);
@@ -53,6 +54,8 @@ namespace OpcUaServer.OpcNodes
                 case Instrument.Nora:
                     ParametersNodesNora = new ParametersNodesNora(sampleFolder);
                     nodes.AddRange(ParametersNodesNora.Nodes);
+                    SampleEventNodesNora = new SampleEventNodesNora(sampleFolder);
+                    nodes.AddRange(SampleEventNodesNora.Nodes);
                     break;
                 case Instrument.Dexter:
                     ParametersNodesDexter = new ParametersNodesDexter(sampleFolder);

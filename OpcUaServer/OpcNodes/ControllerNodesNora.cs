@@ -8,12 +8,13 @@ namespace OpcUaServer.OpcNodes
         public List<IOpcNode> Nodes => nodes;
 
         public OpcDataVariableNode<int> ModeN;
-        public OpcDataVariableNode<int> PipetteProductCodeN;
+        public OpcDataVariableNode<uint> PipetteProductCodeN;
         public OpcDataVariableNode<bool> ZeroToQueue;
         public OpcDataVariableNode<bool> CleanToQueue;
         public OpcDataVariableNode<bool> NoDelayedResults;
         public OpcDataVariableNode<string> SampleRegistration;
         public OpcDataVariableNode<string> PipetteProductCode;
+        public OpcDataVariableNode<bool> ActivateUpdateSession;
 
         private readonly OpcFolderNode controllerFolder;
         private readonly List<IOpcNode> nodes = new List<IOpcNode>();
@@ -36,7 +37,8 @@ namespace OpcUaServer.OpcNodes
             SampleRegistration = CreateOpcUaNode<string>(controllerFolder,
                 $"SampleRegistration{NodeSeparator}PreRegistration{NodeSeparator}Value", nodes);
             PipetteProductCode = CreateOpcUaNode<string>(controllerFolder, "PipetteProductCode", nodes);
-            PipetteProductCodeN = CreateOpcUaNode<int>(controllerFolder, "PipetteProductCodeN", nodes);
+            PipetteProductCodeN = CreateOpcUaNode<uint>(controllerFolder, "PipetteProductCodeN", nodes);
+            ActivateUpdateSession = CreateOpcUaNode<bool>(controllerFolder, "ActivateUpdateSession", nodes);
         }
     }
 }
