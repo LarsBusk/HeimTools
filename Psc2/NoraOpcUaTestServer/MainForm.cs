@@ -131,7 +131,7 @@ namespace NoraOpcUaTestServer
         }
 
 
-        private void Server_StateChanged(object sender, Opc.UaFx.Server.OpcServerStateChangedEventArgs e)
+        private void Server_StateChanged(object sender, ServerStateEventArgs e)
         {
             var mes = e.NewState.ToString();
             serverStateLabel.Text = mes;
@@ -257,7 +257,7 @@ namespace NoraOpcUaTestServer
 
             logHelper = new LogHelper(helper);
 
-            helper.OpcUaServer.ServerStateChanged += OpcUaServer_ServerStateChanged;
+            helper.OpcUaServer.ServerStateChanged += Server_StateChanged;
             helper.Nodes.InstrumentNodesNora.ModeN.AfterApplyChanges += ModeNodeN_AfterApplyChanges;
             helper.Nodes.InstrumentNodes.WatchdogCounter.AfterApplyChanges += WatchdogCounterAfterApplyChanges;
             helper.Nodes.InstrumentNodes.ProductName.AfterApplyChanges += ProductName_AfterApplyChanges;
@@ -265,11 +265,6 @@ namespace NoraOpcUaTestServer
 
             CurrentState = new StateServerStopped(helper);
             SettingsForm.LogOptions = InitialiseLogging();
-        }
-
-        private void OpcUaServer_ServerStateChanged(object sender, ServerStateEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private LogOptions InitialiseLogging()

@@ -28,6 +28,7 @@ namespace OpcUaServer
             NodeBase.OpcNameSpace = opcNamespace;
             this.instrument = instrument;   
             Server = CreateServer();
+            Server.StateChanged += OnServerStateChanged;
         }
 
         public void StartServer()
@@ -40,8 +41,9 @@ namespace OpcUaServer
             Server.Stop();
         }
 
-        protected virtual void OnServerStateChanged(OpcServerStateChangedEventArgs e)
+        protected virtual void OnServerStateChanged(object sender, OpcServerStateChangedEventArgs e)
         {
+
             var args = new ServerStateEventArgs(e.NewState.ToString(), DateTime.Now);
             ServerStateChanged.Invoke(this, args);
         }
@@ -87,7 +89,8 @@ namespace OpcUaServer
 
             return new OpcServer(
                 serverName,
-                _opcUaNodes.Nodes);
+                _opcUaNodes.Nodes
+                );
         }
     }
 
