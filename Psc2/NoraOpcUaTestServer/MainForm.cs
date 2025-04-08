@@ -124,6 +124,9 @@ namespace NoraOpcUaTestServer
                 case 5:
                     CurrentState = new StateNoraProcessCleaning(helper);
                     break;
+                case 6:
+                    CurrentState = new StateNoraManualMeasuring(helper);
+                    break;
                 case 10:
                     CurrentState = new StateNoraPreparing(helper);
                     break;
