@@ -2,15 +2,15 @@
 {
     public class StateNoraMeasuring : IState
     {
-        public string StateName => "Measuring";
+        public string StateName => $"Measuring ({state})";
         public bool ForceMeasure { get; set; }
-        private OpcUaHelper helper;
+        private readonly OpcUaHelper helper;
+        private readonly int state;
 
-        public StateNoraMeasuring(OpcUaHelper opcUaHelper)
+        public StateNoraMeasuring(OpcUaHelper opcUaHelper, int state)
         {
             helper = opcUaHelper;
-            var currentProduct = helper.Nodes.InstrumentNodes.ProductName.Value;
-            //helper.StartMeasuring(currentProduct);
+            this.state = state;
         }
 
         public void ChangeProduct(string product)

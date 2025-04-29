@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NoraOpcUaTestServer.States
+﻿namespace NoraOpcUaTestServer.States
 {
     class StateNoraCip : IState
     {
-        public string StateName => "CleanInPlace";
+        public string StateName => $"Clean In Place ({state})";
 
         public bool ForceMeasure { get; set; }
 
-        private OpcUaHelper helper;
+        private readonly OpcUaHelper helper;
+        private readonly int state;
 
-        public StateNoraCip(OpcUaHelper helper)
+        public StateNoraCip(OpcUaHelper helper, int state)
         {
             this.helper = helper;
+            this.state = state;
         }
 
         public void ChangeProduct(string product)

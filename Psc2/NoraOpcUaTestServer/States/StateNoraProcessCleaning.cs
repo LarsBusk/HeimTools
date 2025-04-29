@@ -2,15 +2,17 @@
 {
     public class StateNoraProcessCleaning : IState
     {
-        public string StateName => "ProcessCleaning";
+        public string StateName => $"Process Cleaning ({state})";
 
         public bool ForceMeasure { get; set; }
 
-        private OpcUaHelper helper;
+        private readonly OpcUaHelper helper;
+        private readonly int state;
 
-        public StateNoraProcessCleaning(OpcUaHelper opcUaHelper)
+        public StateNoraProcessCleaning(OpcUaHelper opcUaHelper, int state)
         {
             helper = opcUaHelper;
+            this.state = state;
         }
 
         public void ChangeProduct(string product)

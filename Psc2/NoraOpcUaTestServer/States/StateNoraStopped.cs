@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace NoraOpcUaTestServer.States
+﻿namespace NoraOpcUaTestServer.States
 {
     public class StateNoraStopped : IState
     {
-        public string StateName => "Stopped";
+        public string StateName => "Stopped (0)";
 
         public bool ForceMeasure
         {
@@ -23,11 +16,12 @@ namespace NoraOpcUaTestServer.States
 
         private readonly OpcUaHelper helper;
         private bool forceMeasure;
+        private readonly int state;
 
-        public StateNoraStopped(OpcUaHelper opcUaHelper)
+        public StateNoraStopped(OpcUaHelper opcUaHelper, int state)
         {
             helper = opcUaHelper;
-            //helper.StopMeasuring();
+            this.state = state;
         }
 
         public void ChangeProduct(string product)

@@ -104,31 +104,31 @@ namespace NoraOpcUaTestServer
             switch (modeN)
             {
                 case 0:
-                    CurrentState = new StateNoraStopped(helper);
+                    CurrentState = new StateNoraStopped(helper, modeN);
                     SetStartStopButtonText("Start");
                     break;
                 case 1:
-                    CurrentState = new StateNoraMeasuring(helper);
+                    CurrentState = new StateNoraMeasuring(helper, modeN);
                     SetStartStopButtonText("Stop");
                     break;
                 case 2:
-                    CurrentState = new StateNoraCip(helper);
+                    CurrentState = new StateNoraCip(helper, modeN);
                     SetStartStopButtonText("Stop");
                     break;
                 case 3:
-                    CurrentState = new StateNoraCleaning(helper);
+                    CurrentState = new StateNoraCleaning(helper, modeN);
                     break;
                 case 4:
-                    CurrentState = new StateNoraZeroing(helper);
+                    CurrentState = new StateNoraZeroing(helper, modeN);
                     break;
                 case 5:
-                    CurrentState = new StateNoraProcessCleaning(helper);
+                    CurrentState = new StateNoraProcessCleaning(helper, modeN);
                     break;
                 case 6:
-                    CurrentState = new StateNoraManualMeasuring(helper);
+                    CurrentState = new StateNoraManualMeasuring(helper, modeN);
                     break;
                 case 10:
-                    CurrentState = new StateNoraPreparing(helper);
+                    CurrentState = new StateNoraPreparing(helper, modeN);
                     break;
             }
         }

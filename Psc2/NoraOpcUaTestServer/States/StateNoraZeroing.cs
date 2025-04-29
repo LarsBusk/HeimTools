@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NoraOpcUaTestServer.States
 {
     public class StateNoraZeroing : IState
     {
-        public string StateName => "ZeroSetting";
+        public string StateName => $"ZeroSetting ({state})";
         public bool ForceMeasure { get; set; }
-        private OpcUaHelper helper;
+        private readonly OpcUaHelper helper;
+        private readonly int state;
 
-        public StateNoraZeroing(OpcUaHelper opcUaHelper)
+        public StateNoraZeroing(OpcUaHelper opcUaHelper, int state)
         {
             helper = opcUaHelper;
+            this.state = state;
         }
 
         public void ChangeProduct(string product)
