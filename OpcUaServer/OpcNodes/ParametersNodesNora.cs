@@ -44,6 +44,7 @@ namespace OpcUaServer.OpcNodes
             var parameterFolder = new OpcFolderNode(parametersFolder, parameterName);
             var valueNode = CreateOpcUaNode<float>(parameterFolder, $"{parameterName}{NodeSeparator}Result");
             var unitNode = CreateOpcUaNode<string>(parameterFolder, $"{parameterName}{NodeSeparator}Unit");
+            var ghNode = CreateOpcUaNode<float>(parameterFolder, $"{parameterName}{NodeSeparator}GHOutlier");
 
             switch (parameterName)
             {
@@ -71,6 +72,7 @@ namespace OpcUaServer.OpcNodes
 
             nodes.Add(valueNode);
             nodes.Add(unitNode);
+            nodes.Add(ghNode);
 
             return nodes;
         }
