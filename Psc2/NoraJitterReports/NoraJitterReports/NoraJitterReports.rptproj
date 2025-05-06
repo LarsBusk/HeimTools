@@ -54,6 +54,7 @@
     <DataSet Include="GetAllStatiscics.rsd" />
     <DataSet Include="Histogram.rsd" />
     <DataSet Include="Intervals.rsd" />
+    <DataSet Include="NetworkDrops.rsd" />
     <DataSet Include="SampleTimes.rsd" />
     <DataSet Include="TestRuns.rsd" />
     <DataSet Include="Top10Delays.rsd" />

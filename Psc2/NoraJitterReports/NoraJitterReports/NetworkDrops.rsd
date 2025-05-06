@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>NoraJitter</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@SetupId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>With Fallouts as
+(
+	Select		SampleNumber
+			,	TestSetupId
+			,	MAX(OpcServerTimeStamp) as MaxTime
+			,	MIN(OpcServerTimeStamp) as MinTime
+			,	COUNT(delaysid) as Cnt
+	From Delays
+	Where TestSetupId = @SetupId
+	Group By TestSetupId, SampleNumber
+	Having COUNT(delaysid) &gt; 1
+)
+Select		SUM(1.0* DATEDIFF(SECOND, MinTime, MaxTime)) /3600 as FallOutTime
+		,	COUNT(*) NoOfFallouts
+		,	TestSetupId
+From		Fallouts
+Group by	TestSetupId</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="FallOutTime">
+        <DataField>FallOutTime</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="NoOfFallouts">
+        <DataField>NoOfFallouts</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="TestSetupId">
+        <DataField>TestSetupId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
