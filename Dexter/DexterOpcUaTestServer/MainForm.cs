@@ -11,7 +11,7 @@ namespace DexterOpcUaTestServer
 {
     public partial class MainForm : Form
     {
-        public static string RootFolderName = "Foss.Dexter";
+        public static string RootFolderName = "Foss.Dexter.";
         public static string ServerName = Properties.Settings.Default.ServerName;
         public static bool EnableUserPassword;
         public static bool EnableAnonymous = true;
