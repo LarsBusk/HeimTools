@@ -16,17 +16,17 @@ namespace NoraOpcUaTestServer.Logging
 
         public static bool IsSimulating;
 
-        public LogHelper(OpcUaHelper helper)
+        public LogHelper(OpcUaHelper helper, string logsFileFolder)
         {
             _helper = helper;
-            _csvWriter = new CsvWriter("Logs","MeasuredValues.csv",
+            _csvWriter = new CsvWriter(logsFileFolder, "MeasuredValues.csv",
                 "Time;SampleCounter;SampleNumber;SampleRegistrationValue;Fat;Protein;Lactose;SNF;TS\n");
             _jitterCsvWriter =
-                new CsvWriter("Logs", "Jitter.csv",
+                new CsvWriter(logsFileFolder, "Jitter.csv",
                     "OpcServerTime;SampleTime;SampleCounter;SampleNumber;TimeBetweenSamples;Delay;\n");
 
-            _logger = new Logger("Logs", "NodeValues.txt");
-            _simLogger = new Logger("Logs", "SimulatorLog.txt");
+            _logger = new Logger(logsFileFolder, "NodeValues.txt");
+            _simLogger = new Logger(logsFileFolder, "SimulatorLog.txt");
             IsSimulating = false;
 
             _helper.Nodes.InstrumentNodes.SampleCounter.AfterApplyChanges += SampleCounter_AfterApplyChanges;

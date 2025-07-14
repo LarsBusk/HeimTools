@@ -6,13 +6,14 @@ using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
+using Microsoft.Extensions.Configuration;
 using Opc.UaFx;
 
 namespace NoraOpcUaTestServer
 {
     public partial class MainForm : Form
     {
-        public static string RootFolderName = "Foss.Nora";
+        public static string RootFolderName = "Foss.Nora.";
         public static string ServerName = Properties.Settings.Default.ServerName;
         public static bool EnableUserPassword;
         public static bool EnableAnonymous = true;
@@ -22,7 +23,7 @@ namespace NoraOpcUaTestServer
         public static X509Certificate2 Certificate;
 
         private OpcUaHelper helper;
-        private readonly Logger statesLogger = new Logger("Logs", "States.txt");
+        private Logger statesLogger;  
         private bool forceMeasure;
         private LogHelper logHelper;
         public IState CurrentState
@@ -245,8 +246,10 @@ namespace NoraOpcUaTestServer
 
         private void Initialise()
         {
-            if (!Directory.Exists(Properties.Settings.Default.LogFolder))
-                Directory.CreateDirectory(Properties.Settings.Default.LogFolder);
+            var logsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "NoraOpcUaServerLogs");
+            if (!Directory.Exists(logsFolder))
+                Directory.CreateDirectory(logsFolder);
+            statesLogger = new Logger(logsFolder, "States.txt");
 
             helper = new OpcUaHelper(
                 serverName: ServerName,
@@ -258,7 +261,7 @@ namespace NoraOpcUaTestServer
                 password: Password,
                 certificate: Certificate);
 
-            logHelper = new LogHelper(helper);
+            logHelper = new LogHelper(helper, logsFolder);
 
             helper.OpcUaServer.ServerStateChanged += Server_StateChanged;
             helper.Nodes.InstrumentNodesNora.ModeN.AfterApplyChanges += ModeNodeN_AfterApplyChanges;
