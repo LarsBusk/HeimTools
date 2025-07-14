@@ -13,7 +13,7 @@ namespace OpcUaServerTest
         {
             helper = new OpcUaHelper(
                 "opc.tcp://localhost:4851",
-                "Foss.Opc",
+                "Foss.Opc.",
                 true,
                 false,
                 false         );

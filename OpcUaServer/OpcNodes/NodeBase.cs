@@ -62,7 +62,9 @@ namespace OpcUaServer.OpcNodes
         {
             List<string> nodeTree = new List<string>(NodeTree);
             nodeTree.Add(node);
-            string name = string.Join(NodeSeparator, nodeTree);
+            var homefolder = nodeTree[0];
+            nodeTree.RemoveAt(0);
+            string name = homefolder + string.Join(NodeSeparator, nodeTree);
             return $"ns={OpcNameSpace};s={name}";
         }
     }
