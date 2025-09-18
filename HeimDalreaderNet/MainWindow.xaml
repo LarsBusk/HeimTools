@@ -1,0 +1,13 @@
+﻿<Window x:Class="HeimDalreaderNet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HeimDalreaderNet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="400">
+    <Grid>
+        <Button Height="30" Width="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="ReadFiles" >Read</Button>
+        <Label Height="30" VerticalAlignment="Top" Content="{Binding Path=Message}"/>
+    </Grid>
+</Window>
