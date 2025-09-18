@@ -12,7 +12,7 @@ namespace DexterOpcUaTestServer.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,15 +20,6 @@ namespace DexterOpcUaTestServer.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("opc.tcp://localhost:4841/DexterTestServer")]
-        public string ServerName {
-            get {
-                return ((string)(this["ServerName"]));
             }
         }
         
@@ -65,6 +56,15 @@ namespace DexterOpcUaTestServer.Properties {
         public string LogFolder {
             get {
                 return ((string)(this["LogFolder"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("opc.tcp://localhost:4842/DexterTestServer")]
+        public string ServerName {
+            get {
+                return ((string)(this["ServerName"]));
             }
         }
     }

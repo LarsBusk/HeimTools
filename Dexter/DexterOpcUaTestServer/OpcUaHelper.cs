@@ -1,8 +1,6 @@
-﻿using OpcUaServer.OpcNodes;
-using OpcUaServer;
-using System;
+﻿using OpcUaServer;
+using OpcUaServer.OpcNodes;
 using System.Security.Cryptography.X509Certificates;
-using System.Threading;
 
 namespace DexterOpcUaTestServer
 {
@@ -12,16 +10,12 @@ namespace DexterOpcUaTestServer
 
         public OpcUaNodes Nodes => Server.Nodes;
         public OpcUaServer.OpcUaServer Server;
-        public string RawDataString;
-
 
         #endregion
 
         #region Private fields
 
         private static uint serverWatchdog = 1;
-        private readonly string serverName;
-        private readonly string homeFolder;
         private readonly X509Certificate2 certificate;
         private readonly string userName;
         private readonly string password;

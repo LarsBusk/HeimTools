@@ -17,8 +17,6 @@ namespace NoraOpcUaTestServer
         #region Private fields
 
         private static uint serverWatchdog = 1;
-        private readonly string serverName;
-        private readonly string certString;
         private readonly string userName;
         private readonly string password;
         private readonly bool enableAnonymous;
@@ -46,8 +44,6 @@ namespace NoraOpcUaTestServer
                 Properties.Settings.Default.OpcNameSpace,
                 Properties.Settings.Default.NodeSeparator,
                 Instrument.Nora);
-
-
             SetAuthentication();
         }
 

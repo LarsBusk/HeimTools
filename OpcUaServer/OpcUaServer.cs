@@ -7,7 +7,6 @@ using System.Threading;
 
 namespace OpcUaServer
 {
-    //public delegate void Notify();
     public class OpcUaServer
     {
         public OpcServer Server;
