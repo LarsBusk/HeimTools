@@ -13,12 +13,12 @@ namespace DexterOpcUaTestServer
     {
         public static string RootFolderName = "Foss.Dexter.";
         public static string ServerName = Properties.Settings.Default.ServerName;
-        public static bool EnableUserPassword;
+        public static bool EnableUserPassword = false;
         public static bool EnableAnonymous = true;
-        public static bool EnableCertificate;
-        public static string User;
-        public static string Password;
-        public static X509Certificate2 Certificate;
+        public static bool EnableCertificate = false;
+        public static string User = string.Empty;
+        public static string Password = string.Empty;
+        public static X509Certificate2 Certificate = null;
 
         private OpcUaHelper helper;
         private readonly Logger statesLogger = new Logger("Logs", "States.txt");
@@ -154,7 +154,7 @@ namespace DexterOpcUaTestServer
 
         private void nodesButton_Click(object sender, EventArgs e)
         {
-            if (!helper.Server.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
+            if (!helper.OpcUaServer.Server.State.Equals(Opc.UaFx.Server.OpcServerState.Started)) return;
 
             var nodesForm = new NodesForm(helper);
             nodesForm.Show();
@@ -210,6 +210,7 @@ namespace DexterOpcUaTestServer
         {
             if (!Directory.Exists(Properties.Settings.Default.LogFolder))
                 Directory.CreateDirectory(Properties.Settings.Default.LogFolder);
+            
 
             helper = new OpcUaHelper(
                 serverName: ServerName,
@@ -223,7 +224,7 @@ namespace DexterOpcUaTestServer
 
             logHelper = new LogHelper(helper);
 
-            helper.Server.Server.StateChanged += Server_StateChanged;
+            helper.OpcUaServer.Server.StateChanged += Server_StateChanged;
             helper.Nodes.InstrumentNodes.Mode.AfterApplyChanges += ModeNode_AfterApplyChanges;
             helper.Nodes.InstrumentNodes.WatchdogCounter.AfterApplyChanges += WatchdogCounterAfterApplyChanges;
             helper.Nodes.InstrumentNodes.ProductName.AfterApplyChanges += ProductName_AfterApplyChanges;
