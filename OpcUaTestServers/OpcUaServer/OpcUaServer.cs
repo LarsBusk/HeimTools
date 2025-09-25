@@ -44,7 +44,7 @@ namespace OpcUaServer
         {
 
             var args = new ServerStateEventArgs(e.NewState.ToString(), DateTime.Now);
-            ServerStateChanged.Invoke(this, args);
+            ServerStateChanged?.Invoke(this, args);
         }
 
         public void SetAnonymous(bool enableAnonymous)

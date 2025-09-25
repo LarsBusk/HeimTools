@@ -5,12 +5,12 @@ namespace DexterOpcUaTestServer
 {
     public partial class EventsForm : Form
     {
-        private OpcUaHelper _helper;
+        private readonly OpcUaHelper helper;
 
         public EventsForm(OpcUaHelper helper)
         {
             InitializeComponent();
-            this._helper = helper;
+            this.helper = helper;
         }
 
         private void EventsForm_Load(object sender, EventArgs e)
@@ -32,11 +32,11 @@ namespace DexterOpcUaTestServer
         private void RefreshGrid()
         {
             const int eventsCount = 16;
-            var eventCodes = _helper.Nodes.EventNodes.EventCodes.Value;
-            var eventMessages = _helper.Nodes.EventNodes.EventMessages.Value;
-            var eventSources = _helper.Nodes.EventNodes.EventSources.Value ?? new string[eventsCount];
-            var eventHints = _helper.Nodes.EventNodes.EventHints.Value;
-            var eventSeverities = _helper.Nodes.EventNodes.EventSeverity.Value;
+            var eventCodes = helper.Nodes.EventNodes.EventCodes.Value;
+            var eventMessages = helper.Nodes.EventNodes.EventMessages.Value;
+            var eventSources = helper.Nodes.EventNodes.EventSources.Value ?? new string[eventsCount];
+            var eventHints = helper.Nodes.EventNodes.EventHints.Value;
+            var eventSeverities = helper.Nodes.EventNodes.EventSeverity.Value;
 
             EventsDataGridView.Rows.Clear();
 
