@@ -10,11 +10,11 @@ namespace OpcUaServer
     public class OpcUaServer
     {
         public OpcServer Server;
-        public OpcUaNodes Nodes => _opcUaNodes;
+        public OpcUaNodes Nodes => opcUaNodes;
         public event EventHandler<ServerStateEventArgs> ServerStateChanged;
         
 
-        private OpcUaNodes _opcUaNodes;
+        private OpcUaNodes opcUaNodes;
         private readonly string serverName;
         private readonly string homeFolder;
         private readonly Instrument instrument;
@@ -82,13 +82,13 @@ namespace OpcUaServer
 
         private OpcServer CreateServer()
         {
-            _opcUaNodes = new OpcUaNodes(homeFolder, instrument);
+            opcUaNodes = new OpcUaNodes(homeFolder, instrument);
 
             Opc.UaFx.Licenser.LicenseKey = Keys.Version3Key;
 
             return new OpcServer(
                 serverName,
-                _opcUaNodes.Nodes
+                opcUaNodes.Nodes
                 );
         }
     }

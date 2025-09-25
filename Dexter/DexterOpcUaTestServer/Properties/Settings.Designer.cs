@@ -61,7 +61,7 @@ namespace DexterOpcUaTestServer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("opc.tcp://localhost:4842/DexterTestServer")]
+        [global::System.Configuration.DefaultSettingValueAttribute("opc.tcp://localhost:4841/DexterTestServer")]
         public string ServerName {
             get {
                 return ((string)(this["ServerName"]));
